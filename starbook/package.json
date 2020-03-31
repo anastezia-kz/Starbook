@@ -5,9 +5,11 @@
   "scripts": {
     "start": "node ./bin/www",
     "dev": "DEBUG=starbook:* nodemon ./bin/www",
-    "dev-windows": "nodemon ./bin/www"
+    "dev-windows": "nodemon ./bin/www",
+    "seed": "node seeds/defaultUsers"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "body-parser": "^1.18.3",
     "cookie-parser": "^1.4.3",
     "dotenv": "^6.0.0",

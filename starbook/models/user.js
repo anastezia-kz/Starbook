@@ -5,17 +5,16 @@ const userSchema = new Schema(
     {
   username: {type: String, unique:true},
   password: String,
-  profileImg: String,
+  profileImg:{type: String, default:"images/defaultImg.jpg"},
   information: String,
   species:String,
   homeworld:String,
-  birth_year: String,
   films:String,
 
   role: {
       type: String,
-      enum: ['ADMIN','USER','GUEST'],
-      default: 'GUEST' 
+      enum: ['ADMIN','USER'],
+      default: 'USER' 
     }
 },
   {
