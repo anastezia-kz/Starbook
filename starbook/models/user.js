@@ -7,10 +7,11 @@ const userSchema = new Schema(
   password: String,
   profileImg: String,
   information: String,
+  species:String,
   homeworld:String,
   birth_year: String,
   films:String,
-  
+
   role: {
       type: String,
       enum: ['ADMIN','USER','GUEST'],
