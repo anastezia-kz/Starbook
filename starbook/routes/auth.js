@@ -18,7 +18,7 @@ router.post("/signup", (req, res, next) => {
             password: hash
           }).then(user => {
             console.log(username)
-            res.render("/index", { user });
+            res.render("index", { user });
           });
         });
       });
