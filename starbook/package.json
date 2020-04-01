@@ -9,21 +9,14 @@
     "seed": "node seeds/defaultUsers"
   },
   "dependencies": {
-<<<<<<< HEAD
     "axios": "^0.19.2",
-=======
->>>>>>> home
     "bcrypt": "^4.0.1",
     "body-parser": "^1.18.3",
     "connect-flash": "^0.1.1",
     "connect-mongo": "^3.2.0",
     "cookie-parser": "^1.4.3",
     "dotenv": "^6.0.0",
-<<<<<<< HEAD
     "express": "^4.16.3",
-=======
-    "express": "^4.17.1",
->>>>>>> home
     "express-session": "^1.17.0",
     "hbs": "^4.0.1",
     "mongoose": "^5.2.10",
