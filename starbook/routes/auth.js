@@ -1,11 +1,12 @@
 const express = require("express");
 const router = express.Router();
-const passport = require("passport");
+const passport = require("../auth/passport");
 const User = require("../models/user");
 const bcrypt = require("bcrypt");
 //added bcryptSalt
 const bcryptSalt = 10;
 const LocalStrategy = require("passport-local").Strategy;
+const swapi = require('swapi-node');
 
 
 // I tried to rewrite it from scratch to practice and to adjust a couple of things,
@@ -115,10 +116,8 @@ router.post("/signup", (req, res, next) => {
           username,
           password: hashPass
         })
-        .then(() => {
-          res.redirect("/");
-          //I don't remember how to make this ID working, SORRY!!!
-          // res.redirect(`/profile/${user.id}`);
+        .then(user => {
+          res.redirect(`/profile/${user.id}`);
         })
         .catch(error => {
           console.log(error);
@@ -128,6 +127,44 @@ router.post("/signup", (req, res, next) => {
       next(error);
     })
 });
+
+router.get('/editProfile/:id', (req, res, next) => {
+  User.findById(req.params.id)
+    .then(user => {
+
+      Promise.all([swapi.get('https://swapi.co/api/planets/?page=1'), swapi.get('https://swapi.co/api/planets/?page=2'), swapi.get('https://swapi.co/api/planets/?page=3')])
+        .then(function (values) {
+          const results = values.map(value => {
+            return value.results
+          })
+          // [...array1, ...array2, ...array3]
+          const planets = [...results[0], ...results[1], ...results[2]]
+          res.render('profile/edit-profile', {
+            user,
+            planets
+          })
+        })
+        .catch(err => console.log(err))
+
+    })
+})
+
+// code below not needed 
+
+// swapi.get('https://swapi.co/api/people/').then((result) => {
+//     console.log(result);
+//     return result.nextPage();
+// }).then((result) => {
+//     console.log(result);
+//     return result.previousPage();
+// }).then((result) => {
+//     console.log(result);
+// }).catch((err) => {
+//     console.log(err);
+// });
+
+// code above not needed
+
 
 router.get('/profile/:id', (req, res, next) => {
   User.findById(req.params.id)
@@ -176,9 +213,9 @@ router.post("/login", (req, res, next) => {
         return;
       }
       if (bcrypt.compareSync(thePassword, user.password)) {
-        // Save the login in the session!
+
         req.session.currentUser = user;
-        res.redirect("/");
+        res.redirect(`/profile/${user.id}`);
       } else {
         res.render("auth/login", {
           errorMessage: "Incorrect password"
@@ -193,11 +230,10 @@ router.post("/login", (req, res, next) => {
 // logout
 
 router.get("/logout", (req, res, next) => {
+  //destroy session
   req.logout();
+
   res.redirect("/");
 });
 
-module.exports = router; 
-
-
-
+module.exports = router;

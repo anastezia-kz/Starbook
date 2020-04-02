@@ -1,0 +1,34 @@
+<h1>Edit your profile!</h1>
+
+{{!-- image uppload --}}
+
+ {{!-- create a route for the post that sends the edit to mongo db--}}
+
+<form action="" method="post">
+  <label for="age">Enter your age:</label>
+<input type="text" name="age">
+<label for="description">Tell something about yourself:</label>
+<input type="text" name="description">
+
+<label for="homeworlds">Choose your home world:</label>
+<select id="homeworlds" name="worldlist" form="worldform">
+  {{#each planets}}
+  <option value="{{this.name}}">{{this.name}}</option>
+  {{/each}}
+</select>
+<button type="submit">Save</button>
+</form>
+
+
+
+{{!-- <select name="status" id="Status" class="binf-selectpicker" data-style="binf-btn-warning"> --}}
+
+{{!-- {{#select planet}}
+   
+ {{#each planet}}
+  <option value="{{planet.name}}">{{planet.name}}</option>
+  {{/each}}
+
+{{/select}}  --}}
+
+{{!-- </select> --}}

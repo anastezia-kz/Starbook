@@ -25,7 +25,9 @@
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "salt": "^0.5.5",
-    "serve-favicon": "^2.5.0"
+    "serve-favicon": "^2.5.0",
+    "swapi-node": "^0.5.0",
+    "swapi-wrapper": "^1.0.0"
   },
   "devDependencies": {
     "nodemon": "^1.12.1"

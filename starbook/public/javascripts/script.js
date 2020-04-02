@@ -4,12 +4,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 }, false);
 
-//DO WE STILL NEED THIS ONE?
+// // Handlebars.registerHelper('select', 
+// // function (selected, options) { 
+// Handlebars.registerHelper('select', function (selected, options) 
+// { return options.fn(this).replace( new RegExp(' value=\"' + selected + '\"'),
+//  '$& selected="selected"'); });
 
-// Handlebars.registerHelper('if_eq', function(a, b, opts) {
-//   if (a == b) {
-//       return opts.fn(this);
-//   } else {
-//       return opts.inverse(this);
-//   }
+
+// window.Handlebars.registerHelper('select', function( value, options ){
+//   var $el = $('<select />').html( options.fn(this) );
+//   $el.find('[value="' + value + '"]').attr({'selected':'selected'});
+//   return $el.html();
 // });

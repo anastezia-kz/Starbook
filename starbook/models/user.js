@@ -8,7 +8,7 @@ const userSchema = new Schema(
   profileImg:{type: String, default:"images/defaultImg.jpg"},
   information: String,
   species:String,
-  homeworld:String,
+  homeworld:{type:String, default:'https://swapi.co/api/planets/14/'},
   films:String,
 
   role: {

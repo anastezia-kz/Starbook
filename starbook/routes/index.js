@@ -9,28 +9,21 @@ router.get('/', (req, res, next) => {
   res.render('index');
 });
 
-// router.get('/profile', (req, res, next) => {
-//   axios({
-//     method: "GET",
-//     url: "https://swapi.co/api/planets",
-//   })
-//     .then(response => {
-//       const planets = response.result.sort((planet) => {
-//         return {name:planet.name, url:planet.url}
-//       })
-//       User.find()
-//       .then(users => {
-//         res.render('profile/profile', {users, planets})
-//       })
-
-
-//       // Here we can do something with the response object
-//     })
-//     .catch(err => {
-//       // Here we catch the error and display it
-//     });
-
-
-// })
+router.get('/profile/:id', (req, res, next) => {
+  User.findById(req.params.id)
+    .then(user => {
+      axios.get(`${user.homeworld}`)
+        .then(response => {
+          const planet = response.data
+          res.render('profile/profile', {
+            user,
+            planet
+          })
+        })
+        .catch(err => {
+          console.log(err)
+        });
+    })
+})
 
 module.exports = router;
