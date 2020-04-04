@@ -7,6 +7,26 @@ const bcryptSalt = 10;
 const LocalStrategy = require("passport-local").Strategy;
 const swapi = require('swapi-node');
 
+// Google sign in
+
+router.get(
+  "/google",
+  passport.authenticate("google", {
+    scope: [
+      "https://www.googleapis.com/auth/userinfo.profile",
+      "https://www.googleapis.com/auth/userinfo.email"
+    ]
+  })
+)
+
+router.get(
+  "/google/callback",
+  passport.authenticate("google", {
+    successRedirect: '/',
+    failureRedirect: "/auth/login"
+  }),
+)
+
 // signup 
 
 router.get("/signup", (req, res, next) => {
