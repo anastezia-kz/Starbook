@@ -129,16 +129,22 @@ router.post("/signup", (req, res, next) => {
 });
 
 router.get('/editProfile/:id', (req, res, next) => {
+  const pageCount = 7;
+  const requests = [];
+  for (let i = 1; i <= pageCount; i++) {
+    requests.push(swapi.get(`https://swapi.co/api/planets/?page=${i}`));
+  }
   User.findById(req.params.id)
     .then(user => {
-
-      Promise.all([swapi.get('https://swapi.co/api/planets/?page=1'), swapi.get('https://swapi.co/api/planets/?page=2'), swapi.get('https://swapi.co/api/planets/?page=3')])
+      Promise.all(requests)
+      // Promise.all([swapi.get('https://swapi.co/api/planets/?page=1'), swapi.get('https://swapi.co/api/planets/?page=2'), swapi.get('https://swapi.co/api/planets/?page=3')])
         .then(function (values) {
-          const results = values.map(value => {
+          /* const results = values.map(value => {
             return value.results
           })
           // [...array1, ...array2, ...array3]
-          const planets = [...results[0], ...results[1], ...results[2]]
+          const planets = [...results[0], ...results[1], ...results[2]] */
+          const planets = values.flatMap((value => value.results));
           res.render('profile/edit-profile', {
             user,
             planets
@@ -232,7 +238,7 @@ router.post("/login", (req, res, next) => {
 router.get("/logout", (req, res, next) => {
   //destroy session
   req.logout();
-
+ 
   res.redirect("/");
 });
 
