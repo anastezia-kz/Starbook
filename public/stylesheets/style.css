@@ -1,13 +1,47 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  padding: 50px; }
 
-a {
-  color: #00B7FF; }
+@font-face {
+  font-family: starWarsFont;
+  src: url(../font/Starjedi.ttf); }
+
+* {
+  font-family: starWarsFont; }
 
 .container {
   display: flex;
   flex-direction: column;
-  align-items: center; }
+  align-items: center;
+  justify-content: center; }
+
+.errorMessages {
+  color: whitesmoke; }
+
+.gif {
+  margin-top: 2rem; }
+
+html, body {
+  height: 100%;
+  margin: 0; }
+
+body {
+  background: url(../images/blue-and-purple-cosmic-sky-956999.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover; }
+
+.jumbotron {
+  background-color: transparent !important; }
+
+.navbar {
+  background-color: darkgray; }
+
+.quotes {
+  margin-top: 2rem;
+  color: whitesmoke; }
+
+.font {
+  color: whitesmoke; }
 
 /*# sourceMappingURL=style.css.map */
