@@ -1,8 +1,22 @@
 <h1>Edit your profile!</h1>
 
-{{!-- image uppload --}}
+{{!-- image upload --}}
 
- {{!-- create a route for the post that sends the edit to mongo db--}}
+<h3>Update your profile picture</h3>
+<div class="photos-wrapper">
+  {{#each photos}}
+    <div class="photo-item">
+      <img src="{{this.imgPath}}" alt="">
+      {{!-- <h4>{{this.title}}</h4>
+      <p>{{this.description}}</p> --}}
+    </div>
+  {{else}}
+    <p>You are using a default picture</p>
+    <p>You can do better!</p>
+  {{/each}}
+</div>
+
+{{!-- edit profile info --}}
 
 <form action="" method="post">
   <label for="age">Enter your age:</label>
@@ -18,17 +32,3 @@
 </select>
 <button type="submit">Save</button>
 </form>
-
-
-
-{{!-- <select name="status" id="Status" class="binf-selectpicker" data-style="binf-btn-warning"> --}}
-
-{{!-- {{#select planet}}
-   
- {{#each planet}}
-  <option value="{{planet.name}}">{{planet.name}}</option>
-  {{/each}}
-
-{{/select}}  --}}
-
-{{!-- </select> --}}
