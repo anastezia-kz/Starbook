@@ -3,13 +3,30 @@ const router = express.Router();
 const passport = require("../auth/passport");
 const User = require("../models/user");
 const bcrypt = require("bcrypt");
-//added bcryptSalt
 const bcryptSalt = 10;
 const LocalStrategy = require("passport-local").Strategy;
-const swapi = require("swapi-node");
-const axios = require("axios");
-// signup
 
+// Google sign in
+
+router.get(
+  "/google",
+  passport.authenticate("google", {
+    scope: [
+      "https://www.googleapis.com/auth/userinfo.profile",
+      "https://www.googleapis.com/auth/userinfo.email"
+    ]
+  })
+)
+
+router.get(
+  "/google/callback",
+  passport.authenticate("google", {
+    successRedirect: '/',
+    failureRedirect: "/auth/login"
+  }),
+)
+
+// signup 
 router.get("/signup", (req, res, next) => {
   res.render("auth/signup");
 });
@@ -56,9 +73,6 @@ router.post("/signup", (req, res, next) => {
       next(error);
     });
 });
-
-
-// login
 
 router.get("/login", (req, res, next) => {
   console.log(req.session);
