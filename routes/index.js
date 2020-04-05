@@ -6,24 +6,24 @@ const axios = require("axios")
 
 /* GET home page */
 router.get('/', (req, res, next) => {
-  res.render('index');
+  console.log(req.session)
+  User.find().then(users => 
+  res.render('index', {users}));
 });
 
-router.get('/profile/:id', (req, res, next) => {
-  User.findById(req.params.id)
-    .then(user => {
-      axios.get(`${user.homeworld}`)
-        .then(response => {
-          const planet = response.data
-          res.render('profile/profile', {
-            user,
-            planet
-          })
-        })
-        .catch(err => {
-          console.log(err)
-        });
-    })
+router.post('/editProfile/:id', (req, res, next) => {
+  const {age, bio, homeworld, /*spaceship*/} = req.body;
+  console.log(req.body)
+  User.findOneAndUpdate(
+    {_id: req.params.id},  { age, bio, homeworld, /*spaceship*/}, {new:true})
+      .then((user) =>
+      { console.log(user)
+        res.render('profile/profile', {user, planet: user.homeworld})},
+      
+      )
+      .catch(e => {
+          next(e)
+      })
 })
 
 module.exports = router;

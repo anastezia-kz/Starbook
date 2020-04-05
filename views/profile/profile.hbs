@@ -3,6 +3,13 @@
 {{/each}} --}}
 <p>Profile of {{user.username}}</p>
 <img src="../{{user.profileImg}}" width="200px" height="200px"/>
-<p>Homeworld: {{planet.name}}</p>
+<p>Homeworld: {{planet}}</p>
+<p>Age: {{user.age}}</p>
+<p>About me: {{user.bio}}</p>
+
+{{#if loggedInUser}}
 <a href="/editProfile/{{user._id}}">Edit your profile</a>
-<a href="/deleteProfile/{{user._id}}">Delete Profile</a>
+<a href="/deleteProfile/{{user._id}}">Delete Profile</a> 
+<a href="/logout">Log out</a>
+                  
+{{/if}}

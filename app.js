@@ -81,6 +81,8 @@ app.use(
 const index = require('./routes/index');
 app.use('/', index);
 
+const postRouter = require('./routes/post')
+app.use('/', postRouter)
 
 const authRouter = require("./routes/auth");
 app.use("/", authRouter);

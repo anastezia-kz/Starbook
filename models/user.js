@@ -6,10 +6,10 @@ const userSchema = new Schema(
   username: {type: String, unique:true},
   password: String,
   profileImg:{type: String, default:"images/defaultImg.jpg"},
-  information: String,
+  bio: String,
   species:String,
-  homeworld:{type:String, default:'https://swapi.co/api/planets/14/'},
-  films:String,
+  homeworld:{type:String, default:'Naboo'},
+  age:String,
 
   role: {
       type: String,
