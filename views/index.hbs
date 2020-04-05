@@ -50,6 +50,7 @@
 
     <div>
         <ul>
+            {{!-- it should work for logged in users only  --}}
             {{#each users}}
             <li>
                 <a href="/profile/{{id}}">{{this.username}}</a>
