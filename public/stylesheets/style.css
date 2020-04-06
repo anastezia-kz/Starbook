@@ -21,8 +21,9 @@ body {
   margin-top: 2rem; }
 
 html, body {
-  height: 100%;
-  margin: 0; }
+  margin: 0;
+  height: 100vh;
+  width: 100vw; }
 
 body {
   background: url(../images/blue-and-purple-cosmic-sky-956999.jpg) no-repeat center center fixed;
@@ -34,8 +35,9 @@ body {
 .jumbotron {
   background-color: transparent !important; }
 
-.navbar {
-  background-color: darkgray; }
+nav {
+  background-color: transparent;
+  opacity: 0.9; }
 
 .quotes {
   margin-top: 2rem;
@@ -43,5 +45,10 @@ body {
 
 .font {
   color: whitesmoke; }
+
+footer {
+  height: 2rem;
+  bottom: 0;
+  width: 100%; }
 
 /*# sourceMappingURL=style.css.map */

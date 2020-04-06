@@ -15,8 +15,8 @@
     <header>
         <nav class="navbar navbar-expand-lg fixed-top navbar-light mb-5 shadow">
             <a class="navbar-brand text-white font-weight-bold" href="/">Starbook</a>
-            <span class="navbar-text text-white font-italic">
-                Welcome to the deep space!
+            <span class="navbar-text text-info font-italic text-left">
+                A space trip!
             </span>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,13 +25,13 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link text-info" href="/">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/login">Login</a>
+                        <a class="nav-link text-white" href="/login">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/signup">Signup</a>
+                        <a class="nav-link text-white" href="/signup">Signup</a>
                     </li>
                 </ul>
             </div>
@@ -39,17 +39,22 @@
     </header>
 
     <div class="container quotes">
-        <h1 class="animated flipInY delay-2s">Welcome to the deep space</h1>
-        <h1 class="animated zoomInRight slower delay-3s">&</h1>
+        {{!-- <h1 class="animated hinge slow delay-2s">#</h1> --}}
+        <h1 class="animated flipInY delay-2s text-center">Welcome to the deep space</h1>
+        <h1 class="animated zoomInRight slower delay-3s text-center">&</h1>
     </div>
 
     <div class="jumbotron container">
-        <h1 class="text-white font-weight-bold">Join Starbook today</h1>
-        <p class="lead text-white font-weight-bold">The social network for space travelers</p>
+        <h1 class="text-white font-weight-bold text-center">Join Starbook today</h1>
+        <p class="lead text-white font-weight-bold text-center">The social network for space travelers</p>
         {{!-- <hr class="my-4"> --}}
-        <p class="text-white font-weight-bold">Enter a new universe of possibilities</p>
+        <p class="text-white font-weight-bold text-center">Enter a new universe of possibilities</p>
         <p class="lead text-white font-weight-bold">
-            <a class="btn btn-primary btn-lg" href="/signup" role="button">Signup now!</a>
+            <a class="btn btn-info btn-lg text-center" href="/signup" role="button">Signup now!</a>
+        </p>
+        <p class="lead text-white font-weight-bold">
+            <a class="btn btn-info btn-lg animated hinge slow delay-3s text-center" role="button">Leave the site now!</a>
+            {{!-- class="animated hinge slow delay-2s" --}}
         </p>
     </div>
 
@@ -75,18 +80,11 @@
         </ul>
     </div>
 
-    <footer>
+    <footer class="fixed-bottom">
         <div class="card">
-            {{!-- <div class="card-footer">
-                Quote
-            </div> --}}
-            <div class="card-body">
-                <blockquote class="blockquote mb-0">
-                    <p>“The Force will be with you. Always.”<span class="blockquote-footer">Obi-Wan Kenobi</span><cite title="Source Title">Star Wars</cite></p>
-                    <footer class="blockquote-footer"> 
-                    <p>Copywrite - Shall we add a link to our GitHub accounts?</p>
-                    </footer>
-                </blockquote>
+            <div>
+                <p class="float-right">“The Force will be with you. Always.”<span>obi-wan kenobi</span></p>
+                <p>Copywrite - anastezia-kz & teo-23</p>
             </div>
         </div>
     </footer>

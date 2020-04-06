@@ -1,8 +1,8 @@
 <header>
   <nav class="navbar navbar-expand-lg fixed-top navbar-light mb-5 shadow">
     <a class="navbar-brand text-white font-weight-bold" href="/">Starbook</a>
-    <span class="navbar-text text-white font-italic">
-      Welcome to the deep space!
+    <span class="navbar-text text-info font-italic">
+      once in a lifetime opportunity
     </span>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
       aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,20 +11,20 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link" href="/">Home</a>
+          <a class="nav-link text-white" href="/">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/login">Login</a>
+          <a class="nav-link text-white" href="/login">Login</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="/signup">Signup<span class="sr-only">(current)</span></a>
+          <a class="nav-link text-info" href="/signup">Signup<span class="sr-only">(current)</span></a>
         </li>
       </ul>
     </div>
   </nav>
 </header>
 
-<form class="container text-white" id="form" action="/signup" method="POST">
+{{!-- <form class="container text-white" id="form" action="/signup" method="POST">
   <label for="username">username</label><br>
   <input type="text" name="username" placeholder="Your username">
   <br>
@@ -34,10 +34,43 @@
   {{#if errorMessage}}
   <div class="error-message">{{ errorMessage }}</div>
   {{/if}}
-
   <br>
-  <button type="submit">Create account</button>
-  <p class="account-message text-white">
-    Do you already have an account? <a href="/login">Login now!</a>
-  </p>
-</form>
+</form> --}}
+
+<div class="loginContainer">
+  <div class="row">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+      <div class="card card-signin my-5">
+        <div class="card-body">
+          <h5 class="card-title text-center">Login</h5>
+          <form class="form-signin" action="/signup" method="POST" id="form">
+            <div class="form-label-group text-center">
+              <input type="text" id="inputText" name="username" class="form-control text-center"
+                placeholder="join the force today" required autofocus>
+              <label for="username">username</label>
+            </div>
+
+            <div class="form-label-group text-center">
+              <input type="password" name="password" id="inputPassword" class="form-control text-center"
+                placeholder="choose your galactic password" required>
+              <label for="password">Password</label>
+            </div>
+
+            {{#if errorMessage}}
+            <div class="error-message">{{ errorMessage }}</div>
+            {{/if}}
+
+            <button class="btn btn-lg btn-info btn-block text-center" type="submit">Sign up</button>
+            <hr class="my-4">
+            {{!-- <button class="btn btn-lg btn-google btn-block text-center" type="submit"><i class="fab mr-2"></i>Create
+              account</button> --}}
+            <p class="account-message text-center">
+              Do you already have an account? <a class="text-center text-info" href="/login">login now!</a>
+            </p>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
