@@ -15,7 +15,7 @@ router.post("/addpost", (req,res,next) => {
   Post.create({
     title:req.body.title,
     body: req.body.body,
-    postedBy:req.session.currentUser._id,
+    postedBy:req.session.currentUser.username,
     // dateCreated: req.body.date
   })
   .then(()=> {
@@ -23,8 +23,6 @@ router.post("/addpost", (req,res,next) => {
   })
 })
 
-// router.get()
-//   Post.find()
 
 router.get("/editpost/:id" ,  (req,res,next) => {
   Post.update({
