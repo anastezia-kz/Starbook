@@ -59,10 +59,13 @@
     </div>
 
     <div>
+        New Posts
         <ul>
         {{#each posts}}
        <li>
-           HI!!!!
+           {{this.title}}
+           {{this.body}}
+           {{this.postedBy}}
        </li>
         {{/each}}
         </ul>

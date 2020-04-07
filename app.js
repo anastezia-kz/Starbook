@@ -87,4 +87,7 @@ app.use("/", authRouter);
 const adminRouter = require('./routes/admin');
 app.use('/admin', adminRouter)
 
+const userRouter = require('./routes/user');
+app.use('/', userRouter);
+
 module.exports = app;

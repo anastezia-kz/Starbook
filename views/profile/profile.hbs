@@ -8,6 +8,7 @@
 <p>About me: {{user.bio}}</p>
 
 {{#if loggedInUser}}
+<a href="/addpost">Write a post</a>
 <a href="/editProfile/{{user._id}}">Edit your profile</a>
 <a href="/deleteProfile/{{user._id}}">Delete Profile</a> 
 <a href="/logout">Log out</a>

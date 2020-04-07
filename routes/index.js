@@ -2,13 +2,17 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose')
 const User = require("../models/user");
+const Post = require("../models/post");
 const axios = require("axios")
 
 /* GET home page */
-router.get('/', (req, res, next) => {
+router.get('/', async (req, res, next) => {
   console.log(req.session)
-  User.find().then(users => 
-  res.render('index', {users}));
+  const users = await User.find();
+  const posts = await Post.find();
+
+  res.render('index', {users, posts});
+
 });
 
 router.post('/editProfile/:id', (req, res, next) => {
@@ -25,5 +29,8 @@ router.post('/editProfile/:id', (req, res, next) => {
           next(e)
       })
 })
+
+
+
 
 module.exports = router;

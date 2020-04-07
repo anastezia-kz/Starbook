@@ -30,6 +30,7 @@ router.get("/profile/:id", (req, res, next) => {
 
   User.findById(req.params.id)
     .then((user) => {
+      
       if (req.session.currentUser) {
         const loggedInUser =
           req.session.currentUser._id == user._id ? true : null;
