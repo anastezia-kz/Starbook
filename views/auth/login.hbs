@@ -1,23 +1,83 @@
-<form action="/login" method="POST" id="form">
+<header>
+  <nav class="navbar navbar-expand-lg fixed-top navbar-light mb-5 shadow">
+    <a class="navbar-brand text-white font-weight-bold" href="/">Starbook</a>
+    <span class="navbar-text text-info font-italic">
+      enter the deep space!
+    </span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+      aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link text-white" href="/">Home</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link text-info" href="/login">Login<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="/signup">Signup</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+{{!-- <form class="container" action="/login" method="POST" id="form">
   <h2>Login</h2>
 
-  <label for="username">Username</label>
+  <label class="text-white" for="username">username</label>
   <input type="text" name="username">
 
-  <label for="password">Password</label>
+  <label class="text-white" for="password">Password</label>
   <input type="password" name="password">
 
   {{#if errorMessage }}
-    <div class="error-message">{{ errorMessage }}</div>
+  <div class="error-message">{{ errorMessage }}</div>
   {{/if}}
 
   <button>Sign in</button>
-  {{!-- Test on adding Google sign in  --}}
-  <a href="/google">Login with Google</a>
-  
-  <p class="account-message">
+  <a class="text-white" href="/google">Login with Google</a>
+
+  <p class="account-message text-white">
     Don't have an account? <a href="/signup">Sign up</a>
   </p>
-</form>
+</form> --}}
 
+<div class="loginContainer">
+  <div class="row">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+      <div class="card card-signin my-5">
+        <div class="card-body">
+          <h5 class="card-title text-center">Login</h5>
+          <form class="form-signin" action="/login" method="POST" id="form">
+            <div class="form-label-group text-center">
+              <input type="text" id="inputText" name="username" class="form-control text-center" placeholder="is that you, darth vader?" required
+                autofocus>
+              <label for="username">username</label>
+            </div>
 
+            <div class="form-label-group text-center">
+              <input type="password" name="password" id="inputPassword" class="form-control text-center" placeholder="type your galactic password"
+                required>
+              <label for="password">Password</label>
+            </div>
+
+            {{#if errorMessage }}
+            <div class="error-message">{{ errorMessage }}</div>
+            {{/if}}
+
+            <button class="btn btn-lg btn-info btn-block text-center" type="submit">Sign in</button>
+            <hr class="my-4">
+            <button class="btn btn-lg btn-google btn-block text-center" type="submit"><i
+                class="fab fa-google mr-2"></i><a class="text-info" href="/google"> Login with Google</a></button>
+            <p class="account-message text-center">
+              Don't have an account? <a class="text-center text-info" href="/signup">Sign up</a>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -43,7 +43,7 @@ router.post("/signup", (req, res, next) => {
     });
     return;
   }
-
+  //lines 47/56 can be removed in a second phase
   User.findOne({
     username: username,
   })
@@ -64,6 +64,7 @@ router.post("/signup", (req, res, next) => {
       })
         .then((user) => {
           res.redirect(`/profile/${user.id}`);
+          // res.redirect('/'); // this one works, the line 66 doesn't anymore :(
         })
         .catch((error) => {
           console.log(error);
