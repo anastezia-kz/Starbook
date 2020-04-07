@@ -15,7 +15,7 @@ router.post("/addpost", (req, res, next) => {
   Post.create({
     title:req.body.title,
     body: req.body.body,
-    postedBy:req.session.currentUser.username,
+    postedBy:req.session.currentUser._id,
     // dateCreated: req.body.date
   })
   .then(()=> {
