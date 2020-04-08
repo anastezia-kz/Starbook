@@ -61,7 +61,9 @@
         <ul>
             {{#each posts}}
             <li>
-                HI!!!!
+                {{this.title}}
+                {{this.body}}
+                {{this.postedBy.username}}
             </li>
             {{/each}}
         </ul>

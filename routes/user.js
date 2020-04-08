@@ -9,20 +9,37 @@ const LocalStrategy = require("passport-local").Strategy;
 const swapi = require("swapi-node");
 const axios = require("axios");
 
-router.get("/editProfile/:id", (req, res, next) => {
+router.get("/editProfile/:id", async (req, res, next) => {
   const pageCount = 7;
   const requests = [];
   for (let i = 1; i <= pageCount; i++) {
     requests.push(swapi.get(`https://swapi.co/api/planets/?page=${i}`));
   }
-  User.findById(req.params.id).then((user) => {
-    Promise.all(requests)
-      .then(function (values) {
-        const planets = values.flatMap((value) => value.results);
-        res.render("profile/edit-profile", { user, planets });
-      })
-      .catch((err) => console.log(err));
-  });
+
+  const countPage = 4;
+  const reqs = [];
+  for( let i = 1; i <= countPage; i++){
+    reqs.push(swapi.get(`https://swapi.co/api/starships/?page=${i}`));
+  }
+  try {
+    const user = await User.findById(req.params.id)// .then((user) => {
+    const values = await Promise.all(requests);
+    const planets = values.flatMap((value) => value.results);
+        /*.then(function (values) {
+          const planets = values.flatMap((value) => value.results);
+          res.render("profile/edit-profile", { user, planets });
+        })*/
+
+    const spaceShipResults = await Promise.all(reqs);  
+    const spaceships = spaceShipResults.flatMap((value) => value.results);
+    res.render("profile/edit-profile", {user, planets, spaceships})
+  } catch (err) {
+    console.log(err);
+  }
+      // .then(function (values) {
+      //   const spaceships = values.flatMap((value) => value.results);
+  
+  
 });
 
 router.get("/profile/:id", (req, res, next) => {
