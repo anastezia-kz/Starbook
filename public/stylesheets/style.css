@@ -1,8 +1,20 @@
-@media only screen and (max-width: 600px) {
-  p {
-    color: lightblue !important; }
+@media (max-width: 576px) {
+  .footer-quote {
+    display: none; }
+  .copywrite {
+    font-size: 1rem; } }
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .copywrite {
+    text-indent: 30%; } }
+
+@media (max-width: 850px) {
   .footer-quote {
     display: none; } }
+
+@media (min-width: 992px) {
+  .quotes {
+    font-size: 10rem !important; } }
 
 body {
   padding: 50px; }
@@ -12,7 +24,8 @@ body {
   src: url(../font/Starjedi.ttf); }
 
 * {
-  font-family: starWarsFont; }
+  font-family: starWarsFont;
+  font-size: 1rem; }
 
 .container {
   display: flex;
@@ -26,7 +39,8 @@ body {
 .gif {
   margin-top: 2rem; }
 
-html, body {
+html,
+body {
   margin: 0;
   height: 100vh;
   width: 100vw; }
@@ -42,8 +56,13 @@ body {
   background-color: transparent !important; }
 
 nav {
-  background-color: transparent;
-  opacity: 0.9; }
+  background-color: transparent; }
+
+.nav-item {
+  text-align: right; }
+
+.indentLogo {
+  text-indent: 10%; }
 
 .quotes {
   margin-top: 2rem;
@@ -51,6 +70,18 @@ nav {
 
 .font {
   color: whitesmoke; }
+
+.bar-left {
+  margin-top: 19em;
+  color: whitesmoke;
+  position: fixed; }
+
+.star {
+  width: 1rem; }
+
+.bar-right {
+  margin-top: 11rem;
+  position: fixed; }
 
 footer {
   height: 2rem;

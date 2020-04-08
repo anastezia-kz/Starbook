@@ -4,7 +4,7 @@
     <span class="navbar-text text-info font-italic">
       enter the deep space!
     </span>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+    <button class="navbar-toggler bg-light" type="button" data-toggle="collapse" data-target="#navbarResponsive"
       aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -24,27 +24,6 @@
   </nav>
 </header>
 
-{{!-- <form class="container" action="/login" method="POST" id="form">
-  <h2>Login</h2>
-
-  <label class="text-white" for="username">username</label>
-  <input type="text" name="username">
-
-  <label class="text-white" for="password">Password</label>
-  <input type="password" name="password">
-
-  {{#if errorMessage }}
-  <div class="error-message">{{ errorMessage }}</div>
-  {{/if}}
-
-  <button>Sign in</button>
-  <a class="text-white" href="/google">Login with Google</a>
-
-  <p class="account-message text-white">
-    Don't have an account? <a href="/signup">Sign up</a>
-  </p>
-</form> --}}
-
 <div class="loginContainer">
   <div class="row">
     <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
@@ -53,14 +32,14 @@
           <h5 class="card-title text-center">Login</h5>
           <form class="form-signin" action="/login" method="POST" id="form">
             <div class="form-label-group text-center">
-              <input type="text" id="inputText" name="username" class="form-control text-center" placeholder="is that you, darth vader?" required
-                autofocus>
+              <input type="text" id="inputText" name="username" class="form-control text-center"
+                placeholder="is that you, darth vader?" required autofocus>
               <label for="username">username</label>
             </div>
 
             <div class="form-label-group text-center">
-              <input type="password" name="password" id="inputPassword" class="form-control text-center" placeholder="type your galactic password"
-                required>
+              <input type="password" name="password" id="inputPassword" class="form-control text-center"
+                placeholder="type your galactic password" required>
               <label for="password">Password</label>
             </div>
 

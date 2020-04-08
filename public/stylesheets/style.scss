@@ -1,12 +1,49 @@
-@media only screen and (max-width: 600px) {
-  p {
-    color: lightblue !important;
-  }
+// Extra small devices (portrait phones, less than 576px)
+// No media query for `xs` since this is the default in Bootstrap
 
+// Small devices (landscape phones, 576px and up)
+@media (max-width: 576px) {
   .footer-quote {
     display: none;
   }
+
+  .copywrite {
+    font-size: 1rem;
+  }
 }
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .copywrite {
+    text-indent: 30%;
+  }
+}
+
+//   @media (max-width: 850px) { 
+//     .toggler {
+//       color: whitesmoke;;
+//     }
+
+//  }
+
+// Medium devices (tablets, 768px and up)
+@media (max-width: 850px) {
+  .footer-quote {
+    display: none;
+  }
+
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) { 
+  .quotes {
+    font-size: 10rem !important;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+// @media (min-width: 1200px) { ... }
+
+// 
 
 body {
   padding: 50px;
@@ -20,6 +57,7 @@ body {
 
 * {
   font-family: starWarsFont;
+  font-size: 1rem;
 }
 
 // Error and 404 layout
@@ -38,13 +76,15 @@ body {
 .gif {
   margin-top: 2rem;
 }
+
 // Homepage layout
 
-html, body {
+html,
+body {
   // height: 100%;
   margin: 0;
-  height: 100vh;//100% view height
-  width: 100vw;// 100% view width
+  height: 100vh; //100% view height
+  width: 100vw; // 100% view width
 }
 
 body {
@@ -56,18 +96,20 @@ body {
 }
 
 .jumbotron {
-background-color: transparent !important;}
+  background-color: transparent !important;
+}
 
 nav {
   background-color: transparent;
-  opacity: 0.9;
 }
 
-// it doesn't work :( 
+.nav-item {
+  text-align: right;
+}
 
-// .navbar-toggler-icon {
-//   color: whitesmoke !important;
-// }
+.indentLogo {
+  text-indent: 10%;
+}
 
 .quotes {
   margin-top: 2rem;
@@ -78,6 +120,25 @@ nav {
   color: whitesmoke;
 }
 
+// left bar
+
+.bar-left {
+  margin-top: 19em;
+  color: whitesmoke;
+  position: fixed;
+}
+
+.star {
+  width: 1rem;
+}
+
+//right bar
+
+.bar-right {
+  margin-top: 11rem;
+  position: fixed;
+}
+
 // Footer
 
 footer {
@@ -86,4 +147,3 @@ footer {
   bottom: 0;
   width: 100%;
 }
-
