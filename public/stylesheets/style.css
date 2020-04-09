@@ -1,16 +1,6 @@
-@media (max-width: 576px) {
-  .footer-quote {
-    display: none; }
-  .copywrite {
-    font-size: 1rem; } }
-
-@media (min-width: 576px) and (max-width: 767.98px) {
-  .copywrite {
-    text-indent: 30%; } }
-
-@media (max-width: 850px) {
-  .footer-quote {
-    display: none; } }
+@media (max-width: 1200px) {
+  nav {
+    background-color: #121924 !important; } }
 
 @media (min-width: 992px) {
   .quotes {
@@ -76,9 +66,6 @@ nav {
   color: whitesmoke;
   position: fixed; }
 
-.star {
-  width: 1rem; }
-
 .bar-right {
   margin-top: 11rem;
   position: fixed; }
@@ -87,5 +74,8 @@ footer {
   height: 2rem;
   bottom: 0;
   width: 100%; }
+
+.copywrite {
+  color: #138396; }
 
 /*# sourceMappingURL=style.css.map */
