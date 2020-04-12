@@ -1,0 +1,24 @@
+
+<a class="nav-link text-info" href="/profile/{{_id}}">My profile <span class="sr-only">(current)</span></a>
+<div>
+    <ul>
+        {{#each users}}
+        <li>
+            <a href="/profile/{{id}}">{{this.username}}</a>
+        </li>
+        {{/each}}
+    </ul>
+</div>
+
+<div>
+    New Posts
+    <ul>
+        {{#each posts}}
+        <li>
+            {{this.title}}
+            {{this.body}}
+            {{this.postedBy.username}}
+        </li>
+        {{/each}}
+    </ul>
+</div>

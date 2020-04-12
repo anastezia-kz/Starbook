@@ -7,6 +7,7 @@ const axios = require("axios")
 // photo upload 
 const Photo = require('../models/photo.js');
 const uploadCloud = require('../config/cloudinary.js');
+const passport = require("../auth/passport")
 
 // app + path test saturday April, 11 - until line 25
 // const app     = express()
@@ -25,14 +26,14 @@ const uploadCloud = require('../config/cloudinary.js');
 //end test
 
 /* GET home page */
-router.get('/', async (req, res, next) => {
-  console.log(req.session)
-  const users = await User.find();
-  const posts = await Post.find().populate('postedBy')
-    console.log(posts)
-  ;
+router.get('/',  async (req, res, next) => {
+  let user
+    if (req.session.currentUser) {
+      user = await User.findById(req.session.currentUser._id)
+    }  
+      res.render('index', {user});
+    
 
-  res.render('index', {users, posts});
 
 });
 

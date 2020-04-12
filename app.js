@@ -99,4 +99,7 @@ app.use('/admin', adminRouter)
 const userRouter = require('./routes/user');
 app.use('/', userRouter);
 
+const newsRouter = require('./routes/newsfeed');
+app.use('/newsfeed', newsRouter)
+
 module.exports = app;

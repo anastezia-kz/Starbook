@@ -3,27 +3,27 @@ const router = express.Router();
 const User = require("../models/user");
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
-
+const passport = require("../auth/passport")
 
 // Google sign in
 
-// router.get(
-//   "/google",
-//   passport.authenticate("google", {
-//     scope: [
-//       "https://www.googleapis.com/auth/userinfo.profile",
-//       "https://www.googleapis.com/auth/userinfo.email"
-//     ]
-//   })
-// )
+router.get(
+  "/google",
+  passport.authenticate("google", {
+    scope: [
+      "https://www.googleapis.com/auth/userinfo.profile",
+      "https://www.googleapis.com/auth/userinfo.email"
+    ]
+  })
+)
 
-// router.get(
-//   "/google/callback",
-//   passport.authenticate("google", {
-//     successRedirect: '/',
-//     failureRedirect: "/auth/login"
-//   }),
-// )
+router.get(
+  "/google/callback",
+  passport.authenticate("google", {
+    successRedirect: '/',
+    failureRedirect: "/auth/login"
+  }),
+)
 
 // signup 
 router.get("/signup", (req, res, next) => {
@@ -104,7 +104,7 @@ router.post("/login", (req, res, next) => {
       }
       if (bcrypt.compareSync(thePassword, user.password)) {
         req.session.currentUser = user;
-        res.redirect(`/profile/${user.id}`);
+        res.redirect('newsfeed');
       } else {
         res.render("auth/login", {
           errorMessage: "Incorrect password",
