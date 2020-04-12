@@ -23,6 +23,9 @@ body {
   align-items: center;
   justify-content: center; }
 
+.distanceBar {
+  margin-top: 3rem; }
+
 .errorMessages {
   color: whitesmoke; }
 
@@ -55,7 +58,6 @@ nav {
   text-indent: 10%; }
 
 .quotes {
-  margin-top: 2rem;
   color: whitesmoke; }
 
 .font {
@@ -77,5 +79,13 @@ footer {
 
 .copywrite {
   color: #138396; }
+
+main {
+  overflow: hidden; }
+
+.star {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0; }
 
 /*# sourceMappingURL=style.css.map */

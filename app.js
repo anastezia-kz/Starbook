@@ -14,6 +14,15 @@ const flash = require("connect-flash");
 const passport = require('./auth/passport')
 const LocalStrategy = require('passport-local').Strategy
 
+// gsap
+
+// const { gsap } = require("gsap/dist/gsap");
+// const { ExpoScaleEase, RoughEase, SlowMo } = require("gsap/dist/EasePack");
+
+// gsap.registerPlugin(ExpoScaleEase, RoughEase, SlowMo);
+
+// end of gsap installation
+
 mongoose
   .connect('mongodb://localhost/starbook', {
     useNewUrlParser: true,

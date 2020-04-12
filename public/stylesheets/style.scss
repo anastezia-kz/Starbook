@@ -1,9 +1,5 @@
 // Small devices (landscape phones, 576px and up)
-@media (max-width: 576px) {
-  .copywrite {
-
-  }
-}
+@media (max-width: 576px) { }
 
 // Medium devices (tablets, 768px and up)
 @media (max-width: 850px) { }
@@ -50,6 +46,10 @@ body {
   justify-content: center;
 }
 
+.distanceBar {
+  margin-top: 3rem;
+}
+
 .errorMessages {
   color: whitesmoke;
 }
@@ -92,7 +92,6 @@ nav {
 }
 
 .quotes {
-  margin-top: 2rem;
   color: whitesmoke;
 }
 
@@ -126,5 +125,17 @@ footer {
 
 .copywrite {
   color: #138396;
+}
+
+// stars 
+
+main {
+  overflow: hidden;
+}
+
+.star {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
 }
 

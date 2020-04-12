@@ -23,10 +23,18 @@
     </nav>
 </header>
 
-<div class="container">
-  <h1 class="errorMessages text-center">error!</h1>
-  <h2 class="errorMessages text-center">omg! there was an error on the server!</h2>
-  <h2 class="errorMessages text-center">call the police and shut down everything! do it now!</h2>
+<h1 class="testSat">TEST teo Saturday</h1>
+<div class="testSat">
+ <p>welcome to the galaxy {{user.username}}</p>
+  <img src="/images/defaultImg.jpg" width="200px" height="200px" />
+  <p>Homeworld: {{planet}}</p>
+  <p>Age: {{user.age}}</p>
+  <p>About me: {{user.bio}}</p>
 
-  <img class="errorMessages gif" src="/images/police.gif" alt="alt-police!">
+  {{#if loggedInUser}}
+  <a href="/addpost">Write a post</a>
+  <a href="/editProfile/{{user._id}}">Edit your profile</a>
+  <a href="/deleteProfile/{{user._id}}">Delete Profile</a>
+  <a href="/logout">Log out</a>
+  {{/if}}
 </div>

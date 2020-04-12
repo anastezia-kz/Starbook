@@ -8,6 +8,22 @@ const axios = require("axios")
 const Photo = require('../models/photo.js');
 const uploadCloud = require('../config/cloudinary.js');
 
+// app + path test saturday April, 11 - until line 25
+// const app     = express()
+// const path    = require('path') 
+
+// app.set('views', path.join(__dirname, 'views'));
+// app.use(express.static(path.join(__dirname, 'public')));
+// app.set('view engine', 'hbs');
+
+// testing here below
+
+// router.get("/profiletest", (req, res, next) => {
+//   res.render("profile/profiletest");
+// });
+
+//end test
+
 /* GET home page */
 router.get('/', async (req, res, next) => {
   console.log(req.session)
@@ -47,10 +63,10 @@ router.get('/', (req, res, next) => {
   })
 });
 
+
 router.get('/photo/add', (req, res, next) => {
   res.render('photo-add');
 });
-
 
 router.post('/photo/add', uploadCloud.single('photo'), (req, res, next) => {
   // const { title, description } = req.body;
@@ -66,6 +82,5 @@ router.post('/photo/add', uploadCloud.single('photo'), (req, res, next) => {
     console.log(error);
   })
 });
-
 
 module.exports = router;
