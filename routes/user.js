@@ -38,11 +38,6 @@ router.get("/editProfile/:id", async (req, res, next) => {
   }
 });
 
-
-// router.get("/profile/profiletest", (req, res, next) => {
-//   res.render("profile/profiletest");
-// });
-
 router.get("/profile/:id", (req, res, next) => {
   User.findById(req.params.id)
     .then((user) => {
@@ -65,28 +60,5 @@ router.get("/profile/:id", (req, res, next) => {
       console.log(err);
     });
 });
-
-// router.get("/profile/:id", (req, res, next) => {
-//   User.findById(req.params.id)
-//     .then((user) => {
-//       if (req.session.currentUser) {
-//         const loggedInUser =
-//           req.session.currentUser._id == user._id ? true : null;
-//         res.render("profile/profile", {
-//           user,
-//           planet: user.homeworld,
-//           loggedInUser,
-//         });
-//       } else {
-//         res.render("profile/profile", {
-//           user,
-//           planet: user.homeworld
-//         });
-//       }
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//     });
-// });
 
 module.exports = router;

@@ -42,28 +42,28 @@ passport.use(
   })
 );
 
-passport.use(new GoogleStrategy({
-  clientID: process.env.GOOGLE_CLIENT_ID,
-  clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-  callbackURL: "/google/callback"
-}, function (accessToken, refreshToken, profile, callback) {
-  User.findOne({
-      GoogleID: profile.id
-    })
-    .then(user => {
-      if (user) {
-        return callback(null, user)
-      }
-      User.create({
-          GoogleID: profile.id,
-          username: profile.emails[0].value
-        })
-        .then(newUser => {
-          callback(null, newUser)
-        })
-        .catch(e => callback(e))
-    })
-    .catch(e => callback(e))
-}))
+// passport.use(new GoogleStrategy({
+//   clientID: process.env.GOOGLE_CLIENT_ID,
+//   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+//   callbackURL: "/google/callback"
+// }, function (accessToken, refreshToken, profile, callback) {
+//   User.findOne({
+//       GoogleID: profile.id
+//     })
+//     .then(user => {
+//       if (user) {
+//         return callback(null, user)
+//       }
+//       User.create({
+//           GoogleID: profile.id,
+//           username: profile.emails[0].value
+//         })
+//         .then(newUser => {
+//           callback(null, newUser)
+//         })
+//         .catch(e => callback(e))
+//     })
+//     .catch(e => callback(e))
+// }))
 
 module.exports = passport

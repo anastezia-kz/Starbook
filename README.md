@@ -1,5 +1,6 @@
 # Starbook
-End of second module - Project at IronHack 
+
+<h1>End of second module - Project at IronHack</h1>
 
 "A long time ago in a galaxy far, far away...."
 
@@ -25,4 +26,3 @@ So galaxy travelers started doing it: navigating the possibilities of the web ap
 
 Do you really wanna try? Then go ahead, but don't say we haven't warned you...
 
-<h1></h1>
