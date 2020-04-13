@@ -37,20 +37,6 @@ router.get('/',  async (req, res, next) => {
 
 });
 
-router.post('/editProfile/:id', (req, res, next) => {
-  const {age, bio, homeworld, /*spaceship*/} = req.body;
-  console.log(req.body)
-  User.findOneAndUpdate(
-    {_id: req.params.id},  { age, bio, homeworld, /*spaceship*/}, {new:true})
-      .then((user) =>
-      { console.log(user)
-        res.render('profile/profile', {user, planet: user.homeworld})},
-      
-      )
-      .catch(e => {
-          next(e)
-      })
-})
 
 // photo upload
 

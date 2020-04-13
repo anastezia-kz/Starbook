@@ -5,14 +5,14 @@
 <h3>Update your profile picture</h3>
 <div class="photos-wrapper">
   {{#each photos}}
-    <div class="photo-item">
-      <img src="{{this.imgPath}}" alt="">
-      {{!-- <h4>{{this.title}}</h4>
+  <div class="photo-item">
+    <img src="{{this.imgPath}}" alt="">
+    {{!-- <h4>{{this.title}}</h4>
       <p>{{this.description}}</p> --}}
-    </div>
+  </div>
   {{else}}
-    <p>You are using a default picture</p>
-    <p>You can do better!</p>
+  <p>You are using a default picture</p>
+  <p>You can do better!</p>
   {{/each}}
 </div>
 
@@ -21,25 +21,30 @@
 <form action="/editProfile/{{user.id}}" method="post">
 
   <label for="age">Enter your age:</label>
-<input type="text" name="age" value="{{user.age}}">
-<label for="bio">Tell something about yourself:</label>
-<input type="text" name="bio" value="{{user.bio}}">
+  <input type="text" name="age" value="{{user.age}}">
+  <label for="bio">Tell something about yourself:</label>
+  <input type="text" name="bio" value="{{user.bio}}">
 
-<label for="homeworlds">Choose your home world:</label>
-<select name="homeworld">
-  {{#each planets}}
-  <option value="{{this.name}}">{{this.name}}</option>
-  {{/each}}
-</select>
+  <label for="homeworlds">Choose your home world:</label>
+  <select name="homeworld">
+    {{#each planets}}
+    <option value="{{this.name}}">{{this.name}}</option>
+    {{/each}}
+  </select>
 
-<label for="spaceships">Choose your spaceship</label>
-<select name="spaceship">
-  {{#each spaceships}}
-  <option value="{{this.name}}">{{this.name}}</option>
-  {{/each}}
-</select>
+  <label for="spaceships">Choose your spaceship</label>
+  <select name="spaceship">
+    {{#each spaceships}}
+    <option value="{{this.name}}">{{this.name}}</option>
+    {{/each}}
+  </select>
 
-<button type="submit">Save</button>
+  <label for="species">Choose your species</label>
+  <select name="species">
+    {{#each species}}
+    <option value="{{this.name}}">{{this.name}}</option>
+    {{/each}}
+  </select>
+
+  <button type="submit">Save</button>
 </form>
-
-

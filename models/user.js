@@ -18,7 +18,7 @@ const userSchema = new Schema({
     default: 'Naboo'
   },
   age: String,
-
+  spaceship: String,
   role: {
     type: String,
     enum: ['ADMIN', 'USER'],
