@@ -9,21 +9,6 @@ const Photo = require('../models/photo.js');
 const uploadCloud = require('../config/cloudinary.js');
 const passport = require("../auth/passport")
 
-// app + path test saturday April, 11 - until line 25
-// const app     = express()
-// const path    = require('path') 
-
-// app.set('views', path.join(__dirname, 'views'));
-// app.use(express.static(path.join(__dirname, 'public')));
-// app.set('view engine', 'hbs');
-
-// testing here below
-
-// router.get("/profiletest", (req, res, next) => {
-//   res.render("profile/profiletest");
-// });
-
-//end test
 
 /* GET home page */
 router.get('/',  async (req, res, next) => {
@@ -32,9 +17,6 @@ router.get('/',  async (req, res, next) => {
       user = await User.findById(req.session.currentUser._id)
     }  
       res.render('index', {user});
-    
-
-
 });
 
 
