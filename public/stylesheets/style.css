@@ -88,4 +88,10 @@ main {
   visibility: hidden;
   opacity: 0; }
 
+.prifile-container {
+  background-color: aqua;
+  display: flex;
+  align-items: center;
+  flex-direction: column; }
+
 /*# sourceMappingURL=style.css.map */

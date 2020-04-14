@@ -102,4 +102,7 @@ app.use('/', userRouter);
 const newsRouter = require('./routes/newsfeed');
 app.use('/newsfeed', newsRouter)
 
+const photoRouter = require('./routes/photo');
+app.use('/photo', photoRouter)
+
 module.exports = app;
