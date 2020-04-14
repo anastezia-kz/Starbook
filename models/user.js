@@ -8,8 +8,9 @@ const userSchema = new Schema({
   },
   password: String,
   profileImg: {
-    type: String,
-    default: "images/defaultImg.jpg"
+    type: mongoose.Schema.Types.ObjectId,
+    ref:"Photo",
+
   },
   bio: String,
   species: String,

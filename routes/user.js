@@ -1,8 +1,7 @@
 const express = require("express");
 const router = express.Router();
-
+const Photo = require("../models/photo");
 const User = require("../models/user");
-
 
 const { spaceships, planets, species } = require("../seeds/spaceshipPlanetsSpecies");
 
@@ -52,8 +51,9 @@ router.post('/editProfile/:id', (req, res, next) => {
 // });
 
 router.get("/profile/:id", (req, res, next) => {
-  User.findById(req.params.id)
+  User.findById(req.params.id).populate('profileImg')
     .then((user) => {
+      console.log("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%", user)
       if (req.session.currentUser) {
         const loggedInUser =
           req.session.currentUser._id == user._id ? true : null;
