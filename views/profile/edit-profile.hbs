@@ -45,7 +45,8 @@
 {{!-- edit profile info --}}
 
 <form action="/editProfile/{{user.id}}" method="post">
-
+  <a href="/photo/add"> Choose a profile picture</a>
+  
   <label for="age">Enter your age:</label>
   <input type="text" name="age" value="{{user.age}}">
   <label for="bio">Tell something about yourself:</label>

@@ -1,3 +1,5 @@
+
+
 <header>
     <nav class="navbar navbar-expand-lg fixed-top navbar-light mb-5 shadow">
         <a class="navbar-brand text-white font-weight-bold" href="/">Starbook <span
@@ -32,6 +34,13 @@
   {{#if loggedInUser}}
   <a href="/addpost">write a post</a>
   <a href="/editProfile/{{user._id}}">edit your profile</a>
+<<<<<<< HEAD
   <a href="/deleteProfile/{{user._id}}">delete Profile</a>
+=======
+  <form action="/delete-profile/{{user._id}}" method="post">
+  <button type="submit">Delete profile</button>
+  </form>
+  <a href="/logout">log out</a>
+>>>>>>> 940d12dc763b9f15afe8988785f903af3bd8a278
   {{/if}}
 </div>

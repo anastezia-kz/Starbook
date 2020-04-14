@@ -1,4 +1,10 @@
 {{!-- views/photo-add.hbs --}}
+
+<h2>Upload a new profile picture</h2>
+<form method="post" enctype="multipart/form-data" action="/photo/add">
+    <input type="file" name="file">
+    <input type="submit" value="Submit">
+</form>
 <div class="text-white">
 <h2>upload a new profile picture</h2>
 <form action="/photo/add" method="post" enctype="multipart/form-data">
