@@ -1,29 +1,29 @@
 
-var vw = window.innerWidth;
-var vh = window.innerHeight;
+const vw = window.innerWidth;
+const vh = window.innerHeight;
 
-var textures = document.querySelectorAll(".star");
-var main = document.querySelector("main");
-var frag = document.createDocumentFragment();
+const textures = document.querySelectorAll(".star");
+const main = document.querySelector("main");
+const frag = document.createDocumentFragment();
 
-var appearMin = 0.3;
-var appearMax = 0.8;
+const appearMin = 0.3;
+const appearMax = 0.8;
 
-var delayMin = 2;
-var delayMax = 6;
+const delayMin = 2;
+const delayMax = 6;
 
-var durationMin = 0.3;
-var durationMax = 1;
+const durationMin = 0.3;
+const durationMax = 1;
 
-var numAnimations = 50;
-var numStars = 300;
+const numAnimations = 50;
+const numStars = 300;
 
-var stars = [];
-var eases = [];
+const stars = [];
+const eases = [];
 
 for (var i = 0; i < numAnimations; i++) {
   
-  var ease = new RoughEase({ 
+  const ease = new RoughEase({ 
     template:  Linear.easeNone, 
     strength: random(1, 3), 
     points: random(50, 200)|0, 
@@ -49,8 +49,8 @@ function onLoad() {
 
 function createStar() {
  
-  var index = random(textures.length)|0;
-  var star = textures[index].cloneNode(true);
+  const index = random(textures.length)|0;
+  const star = textures[index].cloneNode(true);
   frag.appendChild(star);
   
   TweenLite.set(star, {
@@ -62,20 +62,20 @@ function createStar() {
     y: random(vh),
   });
   
-  var tl = new TimelineMax({ repeat: -1, yoyo: true });
+  const tl = new TimelineMax({ repeat: -1, yoyo: true });
    
   for (var i = 0; i < numAnimations; i++) {
     
-    var ease1 = eases[random(numAnimations)|0];
-    var ease2 = eases[random(numAnimations)|0];
+    const ease1 = eases[random(numAnimations)|0];
+    const ease2 = eases[random(numAnimations)|0];
     
-    var alpha = random(0.7, 1);
-    var scale = random(0.15, 0.4);
+    const alpha = random(0.7, 1);
+    const scale = random(0.15, 0.4);
     
-    var appear = "+=" + random(appearMin, appearMax);
-    var delay = "+=" + random(delayMin, delayMax);  
-    var duration1 = random(durationMin, durationMax);
-    var duration2 = random(durationMin, durationMax);   
+    const appear = "+=" + random(appearMin, appearMax);
+    const delay = "+=" + random(delayMin, delayMax);  
+    const duration1 = random(durationMin, durationMax);
+    const duration2 = random(durationMin, durationMax);   
     
     tl.to(star, duration1, { autoAlpha: alpha, scale: scale, ease: ease1 }, delay)
       .to(star, duration2, { autoAlpha: 0, scale: 0, ease: ease2 }, appear)
@@ -91,6 +91,6 @@ function createStar() {
 
 function random(min, max) {
   if (max == null) { max = min; min = 0; }
-  if (min > max) { var tmp = min; min = max; max = tmp; }
+  if (min > max) { const tmp = min; min = max; max = tmp; }
   return min + (max - min) * Math.random();
 }

@@ -1,45 +1,42 @@
-{{!-- <header>
-  <nav class="navbar navbar-expand-lg fixed-top navbar-light mb-5 shadow something">
-    <a class="navbar-brand text-white font-weight-bold" href="/">Starbook <span class="navbar-text text-info font-italic"> enter the deep space!</span></a>
-    
-    <button class="navbar-toggler bg-light" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-      aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link text-white" href="/">Home</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link text-info" href="/login">Login<span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" href="/signup">Signup</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-</header> --}}
 
-<div class="prifile-container">
-  <p class="testProf">Welcome to the galaxy {{user.username}}</p>
-  <img src="{{user.profileImg}}" width="200px" height="200px" />
-  <p>Homeworld: {{planet}}</p>
-  <p>Age: {{user.age}}</p>
-  <p>About me: {{user.bio}}</p>
-  <p>My spaceship:{{user.spaceship}}</p>
+
+<header>
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light mb-5 shadow">
+        <a class="navbar-brand text-white font-weight-bold" href="/">Starbook <span
+                class="navbar-text text-info font-italic text-left"> A space trip!
+            </span></a>
+        <button class="navbar-toggler bg-light" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon toggler"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link text-info" href="/newsfeed">Newsfeed</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/logout">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<div class="text-white">
+  <p>welcome to the galaxy, {{user.username}}</p>
+  <img src="../{{user.profileImg}}" width="200px" height="200px" />
+  <p>homeworld: {{planet}}</p>
+  <p>age: {{user.age}}</p>
+  <p>about me: {{user.bio}}</p>
+  <p>my spaceship:{{user.spaceship}}</p>
   <p>i am:{{user.species}}</p>
 
-
   {{#if loggedInUser}}
-  <a href="/addpost">Write a post</a>
-  <a href="/editProfile/{{user._id}}">Edit your profile</a>
-  
+  <a href="/addpost">write a post</a>
+  <a href="/editProfile/{{user._id}}">edit your profile</a>
   <form action="/delete-profile/{{user._id}}" method="post">
   <button type="submit">Delete profile</button>
   </form>
-
-  <a href="/logout">Log out</a>
+  <a href="/logout">log out</a>
   {{/if}}
 </div>

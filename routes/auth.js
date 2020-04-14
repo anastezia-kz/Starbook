@@ -3,27 +3,8 @@ const router = express.Router();
 const User = require("../models/user");
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
-const passport = require("../auth/passport")
+const passport = require("../auth/passport");
 
-// Google sign in
-
-router.get(
-  "/google",
-  passport.authenticate("google", {
-    scope: [
-      "https://www.googleapis.com/auth/userinfo.profile",
-      "https://www.googleapis.com/auth/userinfo.email"
-    ]
-  })
-)
-
-router.get(
-  "/google/callback",
-  passport.authenticate("google", {
-    successRedirect: '/',
-    failureRedirect: "/auth/login"
-  }),
-)
 
 // signup 
 router.get("/signup", (req, res, next) => {
@@ -63,7 +44,6 @@ router.post("/signup", (req, res, next) => {
       })
         .then((user) => {
           res.redirect(`/profile/${user.id}`);
-          // res.redirect('/'); // this one works, the line 66 doesn't anymore :(
         })
         .catch((error) => {
           console.log(error);
