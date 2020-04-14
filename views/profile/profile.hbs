@@ -1,7 +1,7 @@
 
 
 <header>
-    <nav class="navbar navbar-expand-lg fixed-top navbar-light mb-5 shadow">
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light mb-5">
         <a class="navbar-brand text-white font-weight-bold" href="/">Starbook <span
                 class="navbar-text text-info font-italic text-left"> A space trip!
             </span></a>
@@ -34,9 +34,6 @@
   {{#if loggedInUser}}
   <a href="/addpost">write a post</a>
   <a href="/editProfile/{{user._id}}">edit your profile</a>
-  <form action="/delete-profile/{{user._id}}" method="post">
-  <button type="submit">Delete profile</button>
-  </form>
-  <a href="/logout">log out</a>
+  <a href="/deleteProfile/{{user._id}}">delete Profile</a>
   {{/if}}
 </div>

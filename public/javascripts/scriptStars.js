@@ -3,7 +3,7 @@ const vw = window.innerWidth;
 const vh = window.innerHeight;
 
 const textures = document.querySelectorAll(".star");
-const main = document.querySelector("main");
+const header = document.querySelector("header");
 const frag = document.createDocumentFragment();
 
 const appearMin = 0.3;
@@ -44,7 +44,7 @@ function onLoad() {
     stars.push(createStar());
   }
   
-  main.appendChild(frag);
+  header.appendChild(frag);
 }
 
 function createStar() {
