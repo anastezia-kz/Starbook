@@ -4,8 +4,6 @@ const Multer = require("multer");
 const Photo = require('../models/photo.js');
 const User = require('../models/user')
 
-
-
 const aws = require('aws-sdk')
 const multerS3 = require('multer-s3')
 
@@ -43,9 +41,5 @@ router.post('/add', uploader.single('image'), (req,res,next) => {
   
   .catch(err => console.log(err))
 })
-
-
-
-
 
 module.exports = router;

@@ -1,6 +1,6 @@
 <header>
     <nav class="navbar navbar-expand-lg fixed-top navbar-light mb-5">
-        <a class="navbar-brand text-white font-weight-bold" href="/">Starbook <span
+        <a class="navbar-brand text-white font-weight-bold" href="/newsfeed">Starbook <span
                 class="navbar-text text-info font-italic text-left"> A space trip!
             </span></a>
         <button class="navbar-toggler bg-light" type="button" data-toggle="collapse" data-target="#navbarResponsive"
@@ -13,7 +13,7 @@
                     <a class="nav-link text-info" href="/newsfeed">Newsfeed</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="/profile">your profile</a>
+                    <a class="nav-link text-white" href="/profile/{{_id}}">your profile</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-white" href="/logout">Logout</a>
@@ -23,41 +23,58 @@
     </nav>
 </header>
 
+<div class="container text-white titleEditProf">
+    <div>
+        <h1>edit your profile!</h1>
+    </div>
+</div>
+
 <div class="text-white">
-<h1>edit your profile!</h1>
-
-
-{{!-- edit profile info --}}
-
-<form action="/editProfile/{{user.id}}" method="post">
-  <a href="/photo/add"> Choose a profile picture</a>
-  
-  <label for="age">Enter your age:</label>
-  <input type="text" name="age" value="{{user.age}}">
-  <label for="bio">Tell something about yourself:</label>
-  <input type="text" name="bio" value="{{user.bio}}">
-
-  <label for="homeworlds">Choose your home world:</label>
-  <select name="homeworld">
-    {{#each planets}}
-    <option value="{{this.name}}">{{this.name}}</option>
-    {{/each}}
-  </select>
-
-  <label for="spaceships">Choose your spaceship</label>
-  <select name="spaceship">
-    {{#each spaceships}}
-    <option value="{{this.name}}">{{this.name}}</option>
-    {{/each}}
-  </select>
-
-  <label for="species">Choose your species</label>
-  <select name="species">
-    {{#each species}}
-    <option value="{{this.name}}">{{this.name}}</option>
-    {{/each}}
-  </select>
-
-  <button type="submit">Save</button>
-</form>
+    <form action="/editProfile/{{user.id}}" method="post">
+        <div class="form-group">
+            <button class="btn btn-lg btn-block text-center buttonPhoto" type="submit"><a class="text-info form-control"
+                    href="/photo/add"> Choose a profile picture!</a></button>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="age">Enter your age:</label>
+                <input type="text" class="form-control" name="age" value="{{user.age}}"
+                    placeholder="i was young too, once">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="homeworlds">Choose your home world:</label>
+                <select name="homeworld" class="form-control" placeholder="earth? really!?">
+                    {{#each planets}}
+                    <option value="{{this.name}}">{{this.name}}</option>
+                    {{/each}}
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="bio">Tell something about yourself:</label>
+            <input type="text" name="bio" class="form-control" id="bio" value="{{user.bio}}"
+                placeholder="oh, really? boring...">
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="spaceships">Choose your spaceship</label>
+                <select name="spaceship" class="form-control" placeholder="nope, a ferrari doesn't fly...">
+                    {{#each spaceships}}
+                    <option value="{{this.name}}">{{this.name}}</option>
+                    {{/each}}
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="spaceships">Choose your species</label>
+                <select name="species" class="form-control" placeholder="interesting face...">
+                    {{#each species}}
+                    <option value="{{this.name}}">{{this.name}}</option>
+                    {{/each}}
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-lg btn-block text-center buttonPhoto" type="submit"><a
+                    class="text-info form-control"> save (yourself) now</a></button>
+    </form>
 </div>

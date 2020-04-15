@@ -1,10 +1,35 @@
+<header>
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light mb-5">
+        <a class="navbar-brand text-white font-weight-bold" href="/newsfeed">Starbook <span
+                class="navbar-text text-info font-italic text-left"> A space trip!
+            </span></a>
+        <button class="navbar-toggler bg-light" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon toggler"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link text-info" href="/newsfeed">Newsfeed</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/profile/{{_id}}">your profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/logout">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+
+
 {{!-- views/photo-add.hbs --}}
-<div class="text-white">
+<div class="text-white container photoUpload">
 <h2>upload a new profile picture</h2>
 <form method="post" enctype="multipart/form-data" action="/photo/add">
     <input type="file" id="file" name="image">
-    <button type="submit">Save</button>
-</form>
-
-
+<button class="btn btn-lg btn-block text-center" type="submit"><a
+                    class="text-info">save (it for your driving license)</a></button></form>
 </div>

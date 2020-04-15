@@ -45,11 +45,6 @@ router.post('/editProfile/:id', (req, res, next) => {
 })
 
 
-
-// router.get("/profile/profiletest", (req, res, next) => {
-//   res.render("profile/profiletest");
-// });
-
 router.get("/profile/:id", (req, res, next) => {
   User.findById(req.params.id).populate('profileImg')
     .then((user) => {

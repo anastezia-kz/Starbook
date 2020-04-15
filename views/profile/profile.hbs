@@ -1,8 +1,6 @@
-
-
 <header>
     <nav class="navbar navbar-expand-lg fixed-top navbar-light mb-5">
-        <a class="navbar-brand text-white font-weight-bold" href="/">Starbook <span
+        <a class="navbar-brand text-white font-weight-bold" href="/newsfeed">Starbook <span
                 class="navbar-text text-info font-italic text-left"> A space trip!
             </span></a>
         <button class="navbar-toggler bg-light" type="button" data-toggle="collapse" data-target="#navbarResponsive"
@@ -22,23 +20,31 @@
     </nav>
 </header>
 
-<div class="text-white">
-  <p>welcome to the galaxy, {{user.username}}</p>
-  <img src="{{user.profileImg.image}}" width="200px" height="200px" />
-  <p>homeworld: {{planet}}</p>
-  <p>age: {{user.age}}</p>
-  <p>about me: {{user.bio}}</p>
-  <p>my spaceship:{{user.spaceship}}</p>
-  <p>i am:{{user.species}}</p>
-
-  {{#if loggedInUser}}
-  <a href="/addpost">write a post</a>
-  <a href="/editProfile/{{user._id}}">edit your profile</a>
-{{!-- this should be a form! --}}
-  <form action="/deleteprofile/{{user._id}}">
-  <button type="submit"> delete my profile (think twice)</button>
-  </form>
-{{!-- this should be a form! --}}  
-
-  {{/if}}
+<div class="containerProfile text-white">
+    <p class="username">welcome to the galaxy, {{user.username}}!</p>
+    <img class="profilePic" src="{{user.profileImg.image}}" width="200px" height="200px" />
+    <p>homeworld: {{planet}}</p>
+    <p>age: {{user.age}}</p>
+    <p class="aboutMe">about me: {{user.bio}}</p>
+    <p>my spaceship: {{user.spaceship}}</p>
+    <p>i am: {{user.species}}</p>
 </div>
+
+{{#if loggedInUser}}
+<div class="functionalities">
+    <div>
+        <a class="text-white funcionalitiesElem" href="/addpost">write a post</a>
+    </div>
+    <div>
+        <a class="text-white funcionalitiesElem" href="/editProfile/{{user._id}}">edit your profile</a>
+    </div>
+    <div>
+        {{!-- this should be a form! --}}
+        <form action="/deleteprofile/{{user._id}}">
+            <button class="btn btn-lg btn-block text-center" type="submit"><a
+                    class="text-info"> delete my profile (think twice)</a></button>
+        </form>
+        {{!-- this should be a form! --}}
+    </div>
+</div>
+{{/if}}
