@@ -143,9 +143,17 @@ main {
 
 //profile
 
-.prifile-container{
-  background-color: aqua;
+.text-white{
+  
   display: flex;
   align-items: center;
-  flex-direction: column;  
+  flex-direction: column; 
+  img{
+    object-fit: cover;
+  }
+}
+
+.prifile-container{
+  background-color: aqua;
+   
 }

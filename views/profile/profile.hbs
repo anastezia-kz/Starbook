@@ -34,6 +34,11 @@
   {{#if loggedInUser}}
   <a href="/addpost">write a post</a>
   <a href="/editProfile/{{user._id}}">edit your profile</a>
-  <a href="/deleteProfile/{{user._id}}">delete Profile</a>
+{{!-- this should be a form! --}}
+  <form action="/deleteprofile/{{user._id}}">
+  <button type="submit"> delete my profile (think twice)</button>
+  </form>
+{{!-- this should be a form! --}}  
+
   {{/if}}
 </div>

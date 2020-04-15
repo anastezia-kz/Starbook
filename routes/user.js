@@ -75,10 +75,11 @@ router.get("/profile/:id", (req, res, next) => {
 });
 
 
-router.post("/delete-profile/:id", (req, res, next) => {
+router.post("/deleteprofile/:id", (req, res, next) => {
+
   User.findByIdAndRemove(req.params.id)
     .then(user => {
-      console.log("@@@@@@@@@@@", user);
+      console.log("DELETED", user);
       res.redirect("/");
     })
     .catch(err => console.log(err));

@@ -88,10 +88,14 @@ main {
   visibility: hidden;
   opacity: 0; }
 
-.prifile-container {
-  background-color: aqua;
+.text-white {
   display: flex;
   align-items: center;
   flex-direction: column; }
+  .text-white img {
+    object-fit: cover; }
+
+.prifile-container {
+  background-color: aqua; }
 
 /*# sourceMappingURL=style.css.map */
