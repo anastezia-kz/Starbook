@@ -26,6 +26,15 @@ body {
   padding: 50px;
 }
 
+main {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
+
 @font-face {
   font-family: starWarsFont;
   // src: url(../font/DeathStar-VmWB.ttf);
