@@ -128,6 +128,9 @@ main {
 //profile
 
 .containerProfile {
+  img{
+    object-fit: cover;
+  }
   display: flex;
   flex-direction: column;
   align-items: center;

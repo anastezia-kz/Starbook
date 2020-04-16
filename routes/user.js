@@ -7,16 +7,43 @@ const { spaceships, planets, species } = require("../seeds/spaceshipPlanetsSpeci
 
 
 router.get("/editProfile/:id", async (req, res, next) => {
-  const resultSpaceship = spaceships.map(item => item.fields);
-  const resultPlanets = planets.map(item => item.fields);
-  const resultSpecies = species.map(item => item.fields)
+    
   try {
     const user = await User.findById(req.params.id);
+   const finalPlanet =  planets.map(({fields})=> {
+      if(fields.name === user.homeworld ){
+        return { ...fields, isSelected: true}
+      }else{
+          return fields
+      }
+    }
+      )
+    
+
+      const finalKind =  species.map(({fields})=> {
+        if(fields.name === user.species ){
+          return { ...fields, isSelected: true}
+        }else{
+            return fields
+        }
+      }
+        )
+
+        const finalShip =  spaceships.map(({fields})=> {
+          if(fields.name === user.spaceship ){
+            return { ...fields, isSelected: true}
+          }else{
+              return fields
+          }
+        }
+          )
+    
+
     res.render("profile/edit-profile", {
       user,
-      planets: resultPlanets,
-      spaceships: resultSpaceship,
-      species:resultSpecies
+      planets: finalPlanet,
+      spaceships: finalShip,
+      species:finalKind
     });
   
    
@@ -29,14 +56,14 @@ router.get("/editProfile/:id", async (req, res, next) => {
 
 router.post('/editProfile/:id', (req, res, next) => {
   console.log('***************************************************');
-  console.log('bla:', req.avatar);
+  
   const {age, bio, homeworld, spaceship, species} = req.body;
   User.findOneAndUpdate(
     {_id: req.params.id},  { age, bio, homeworld, spaceship, species}, {new:true})
       .then((user) =>
-      { console.log(user)
+      { //req.session.currentUser = user
         console.log({user})
-        res.render('profile/profile', {user, planet: user.homeworld})},
+        res.redirect(`/profile/${user._id}`)},
       
       )
       .catch(e => {
@@ -48,7 +75,10 @@ router.post('/editProfile/:id', (req, res, next) => {
 router.get("/profile/:id", (req, res, next) => {
   User.findById(req.params.id).populate('profileImg')
     .then((user) => {
-      console.log("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%", user)
+      console.log("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%", {
+        user,
+        sessionUser: req.session.currentUser,
+      })
       if (req.session.currentUser) {
         const loggedInUser =
           req.session.currentUser._id == user._id ? true : null;
@@ -70,11 +100,10 @@ router.get("/profile/:id", (req, res, next) => {
 });
 
 
-router.post("/deleteprofile/:id", (req, res, next) => {
+router.get("/deleteprofile/:id", (req, res, next) => {
 
-  User.findByIdAndRemove(req.params.id)
-    .then(user => {
-      console.log("DELETED", user);
+  User.deleteOne({_id:req.params.id})
+  .then(() => {
       res.redirect("/");
     })
     .catch(err => console.log(err));

@@ -45,7 +45,11 @@
                 <label for="homeworlds">Choose your home world:</label>
                 <select name="homeworld" class="form-control" placeholder="earth? really!?">
                     {{#each planets}}
+                    {{#if isSelected}}
+                    <option value="{{this.name}}" selected='selected'>{{this.name}}</option>
+                    {{else}} 
                     <option value="{{this.name}}">{{this.name}}</option>
+                    {{/if}}
                     {{/each}}
                 </select>
             </div>
@@ -60,7 +64,11 @@
                 <label for="spaceships">Choose your spaceship</label>
                 <select name="spaceship" class="form-control" placeholder="nope, a ferrari doesn't fly...">
                     {{#each spaceships}}
+                    {{#if isSelected}}
+                    <option value="{{this.name}}" selected='selected'>{{this.name}}</option>
+                    {{else}} 
                     <option value="{{this.name}}">{{this.name}}</option>
+                    {{/if}}
                     {{/each}}
                 </select>
             </div>
@@ -68,7 +76,11 @@
                 <label for="spaceships">Choose your species</label>
                 <select name="species" class="form-control" placeholder="interesting face...">
                     {{#each species}}
+                    {{#if isSelected}}
+                    <option value="{{this.name}}" selected='selected'>{{this.name}}</option>
+                    {{else}} 
                     <option value="{{this.name}}">{{this.name}}</option>
+                    {{/if}}
                     {{/each}}
                 </select>
             </div>
