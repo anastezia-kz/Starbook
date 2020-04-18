@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const PostImg = require("../models/postImg");
+
 const Post = require("../models/post");
 const aws = require('aws-sdk')
 const multerS3 = require('multer-s3')
