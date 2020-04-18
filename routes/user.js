@@ -10,7 +10,7 @@ router.get("/editProfile/:id", async (req, res, next) => {
     
   try {
     const user = await User.findById(req.params.id);
-   const finalPlanet =  planets.map(({fields})=> {
+    const finalPlanet =  planets.map(({fields})=> {
       if(fields.name === user.homeworld ){
         return { ...fields, isSelected: true}
       }else{
