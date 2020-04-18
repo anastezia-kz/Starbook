@@ -165,7 +165,7 @@ main {
 //         transform: rotateZ(-30deg);
 // }
 
-.profilePic:hover {
+.profilePic {
   border-radius: 50%;
 }
 
@@ -203,6 +203,10 @@ main {
   margin-top: 1.5rem;
 }
 
+.buttonDeleteColor {
+  background-color: #138396;
+}
+
 // photo upload
 
 .photoUpload {
@@ -214,3 +218,19 @@ main {
 .newsfeed {
   margin-top: 2rem;
 }
+
+.ulNewsfeed {
+  list-style-type: none;
+  text-indent: -2rem;
+  position: fixed;
+}
+
+.postAuthor {
+  color: #138396;
+}
+
+.usersList {
+  color: #138396;
+}
+
+// posts
