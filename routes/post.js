@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-
 const Post = require("../models/post");
 const aws = require('aws-sdk')
 const multerS3 = require('multer-s3')
@@ -11,20 +10,19 @@ router.get("/addpost", (req, res, next) => {
   res.render("post/add")
 })
 
-router.post("/addpost",uploader.single('Post-image'), (req, res, next) => {
-  console.log("########################################",req.file)
+router.post("/addpost", uploader.single('Post-image'), (req, res, next) => {
+  console.log("###",req.file)
   Post.create({
-      title:req.body.title,
+      title: req.body.title,
       body: req.body.body,
       postedBy:req.user._id,
       postImg: req.file.location
     })
-    
- 
-  .then((post)=> {
-    //console.log("NEW POOOOOOOOST", post)
-    res.redirect("/newsfeed")
-  })
+
+    .then((post) => {
+      //console.log("NEW POOOOOOOOST", post)
+      res.redirect("/newsfeed")
+    })
 })
 
 router.get("/editpost/:id", (req, res, next) => {

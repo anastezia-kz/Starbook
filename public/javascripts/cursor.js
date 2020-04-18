@@ -4,7 +4,7 @@
   var possibleColors = ["#D61C59", "#E7D84B", "#1B8798"]
   var width = window.innerWidth;
   var height = window.innerHeight;
-  var cursor = {x: width/2, y: width/2};
+  var cursor = {x: width, y: width};
   var particles = [];
   
   function init() {
@@ -82,7 +82,7 @@
       "display": "block",
       "pointerEvents": "none",
       "z-index": "10000000",
-      "fontSize": "16px",
+      "fontSize": "8px",
       "will-change": "transform"
     };
 
@@ -94,7 +94,7 @@
         y: 1
       };
       
-      this.position = {x: x - 10, y: y - 20};
+      this.position = {x: x - 1, y: y - 1};
       this.initialStyles.color = color;
 
       this.element = document.createElement('span');

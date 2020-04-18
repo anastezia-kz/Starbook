@@ -53,7 +53,7 @@ router.get("/editProfile/:id", async (req, res, next) => {
 
 
 router.post('/editProfile/:id', (req, res, next) => {
-  console.log('***************************************************');
+  // console.log('***************************************************');
   
   const {age, bio, homeworld, spaceship, species} = req.body;
   User.findOneAndUpdate(
