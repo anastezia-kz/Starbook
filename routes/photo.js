@@ -6,10 +6,9 @@ const User = require('../models/user')
 
 const aws = require('aws-sdk')
 const multerS3 = require('multer-s3')
-
 const s3 = new aws.S3();
 
-const uploader = new Multer({
+ const uploader = new Multer({
   
   storage: multerS3({
     s3: s3,
@@ -42,4 +41,4 @@ router.post('/add', uploader.single('image'), (req,res,next) => {
   .catch(err => console.log(err))
 })
 
-module.exports = router;
+module.exports = {router, uploader};

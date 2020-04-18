@@ -9,7 +9,7 @@ router.get('/', async (req, res, next) => {
   console.log(req.session)
   const users = await User.find();
   const posts = await Post.find().populate('postedBy')
-    //console.log(posts)
+    console.log(posts)
   ;
 
   res.render('newsfeed', {users, posts, _id:req.session.currentUser._id});

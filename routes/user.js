@@ -18,8 +18,6 @@ router.get("/editProfile/:id", async (req, res, next) => {
       }
     }
       )
-    
-
       const finalKind =  species.map(({fields})=> {
         if(fields.name === user.species ){
           return { ...fields, isSelected: true}
