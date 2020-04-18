@@ -20,29 +20,27 @@
     </nav>
 </header>
 
-<div class="text-white">
 
-<a class="nav-link text-info" href="/profile/{{_id}}">my profile <span class="sr-only">(current)</span></a>
-<div>
-    <ul>
-        {{#each users}}
-        <li>
-            <a href="/profile/{{id}}">{{this.username}}</a>
-        </li>
-        {{/each}}
-    </ul>
-</div>
-
-<div>
-    new posts
-    <ul>
-        {{#each posts}}
-        <li>
-            {{this.title}}
-            {{this.body}}
-            {{this.postedBy.username}}
-        </li>
-        {{/each}}
-    </ul>
-</div>
+<div class="newsfeed row text-white">
+    <div class="col-9">
+        new posts
+        <ul>
+            {{#each posts}}
+            <li>
+                {{this.title}}
+                {{this.body}}
+                {{this.postedBy.username}}
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+    <div class="col-3">
+        <ul>
+            {{#each users}}
+            <li>
+                <a href="/profile/{{id}}">{{this.username}}</a>
+            </li>
+            {{/each}}
+        </ul>
+    </div>
 </div>
