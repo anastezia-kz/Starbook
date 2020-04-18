@@ -16,7 +16,7 @@ router.post("/addpost",uploader.single('Post-image'), (req, res, next) => {
   Post.create({
       title:req.body.title,
       body: req.body.body,
-      postedBy:req.session.currentUser._id,
+      postedBy:req.user._id,
       postImg: req.file.location
     })
     
