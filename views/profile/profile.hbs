@@ -22,7 +22,8 @@
 
 <div class="containerProfile text-white">
     <p class="username">welcome to the galaxy, {{user.username}}!</p>
-    <img class="profilePic" onerror="if (src != "{{user.profileImg.image}}") src = '/images/defaultImg.jpg';" src="{{user.profileImg.image}}" width="240px" height="240px" />
+    <img class="profilePic" onerror="if (src != " {{user.profileImg.image}}") src='/images/defaultImg.jpg' ;"
+        src="{{user.profileImg.image}}" width="240px" height="240px" />
     <p>homeworld: {{planet}}</p>
     <p>age: {{user.age}}</p>
     <p class="aboutMe">about me: {{user.bio}}</p>
@@ -39,43 +40,33 @@
         <a class="text-white funcionalitiesElem" href="/editProfile/{{user._id}}">edit your profile</a>
     </div>
     <div>
-        {{!-- this should be a form! --}}
-        {{!-- <form action="/deleteprofile/{{user._id}}" method="POST"> --}}
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-lg btn-block text-center btn-primary" data-toggle="modal" data-target="#exampleModal{{user._id}}">
-                delete my profile
-            </button>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-lg btn-block text-center btn-primary buttonDeleteColor" data-toggle="modal"
+            data-target="#exampleModal{{user._id}}">
+            delete my profile
+        </button>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal{{user._id}}" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalLabel{{user._id}}" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel{{user._id}}">DELETE</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Do you really wanna leave this galaxy?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <a href="/deleteprofile/{{user._id}}" class="btn btn-danger">Delete</a>
 
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal{{user._id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel{{user._id}}"
-                aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel{{user._id}}">DELETE</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            Are you sure you want to delete your profile?
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                            <a href="/deleteprofile/{{user._id}}" class="btn btn-danger">Delete</a>
-
-                        </div>
                     </div>
                 </div>
             </div>
-
-
-
-
-
-            
-        {{!-- </form> --}}
-        {{!-- this should be a form! --}}
+        </div>
     </div>
 </div>
 {{/if}}

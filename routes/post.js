@@ -19,7 +19,7 @@ router.post("/addpost", (req, res, next) => {
     // dateCreated: req.body.date
   })
   .then(()=> {
-    res.redirect("/")
+    res.redirect("/newsfeed")
   })
 })
 
