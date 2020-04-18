@@ -4,6 +4,8 @@ const User = require("../models/user");
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 const passport = require("../auth/passport");
+const LocalStrategy = require('passport-local').Strategy
+const GoogleStrategy = require('passport-google-oauth20')
 
 
 // signup 
@@ -30,7 +32,7 @@ router.post("/signup", (req, res, next) => {
     .then((user) => {
       if (user !== null) {
         res.render("auth/signup", {
-          errorMessage: "The username is already taken! Try using another one!",
+          errorMessage: "Too late! The username is already taken! Try using another one!",
         });
         return;
       }
@@ -79,7 +81,7 @@ router.post("/login", (req, res, next) => {
     .then((user) => {
       if (!user) {
         res.render("auth/login", {
-          errorMessage: "The username doesn't exist.",
+          errorMessage: "who are you? the username doesn't exist.",
         });
         return;
       }
@@ -88,7 +90,7 @@ router.post("/login", (req, res, next) => {
         res.redirect('newsfeed');
       } else {
         res.render("auth/login", {
-          errorMessage: "Incorrect password",
+          errorMessage: "incorrect password",
         });
       }
     })
@@ -121,11 +123,9 @@ router.get(
 router.get(
   "/google/callback",
   passport.authenticate("google", {
-    successRedirect: ('/'),
-    failureRedirect: "/auth/login"
+    successRedirect: ('/profile'),
+    failureRedirect: "/login"
   }),
 )
-
-
 
 module.exports = router;
