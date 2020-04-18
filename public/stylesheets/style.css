@@ -71,6 +71,11 @@ nav {
 .font {
   color: whitesmoke; }
 
+.fallingAnimation {
+  position: fixed;
+  left: 40.5%;
+  z-index: -1; }
+
 footer {
   height: 2rem;
   bottom: 0;

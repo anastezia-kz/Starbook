@@ -27,13 +27,13 @@
         <br>
         <div>
             {{#each posts}}
-            <li>
+            {{!-- <li>
                 {{this.title}}
                 {{this.body}}
                 <img class="profilePic" src="{{this.postImg}}" width="240px" height="240px" />
 
                 {{this.postedBy.username}}
-            </li>
+            </li> --}}
             <div>
                 <div>
                     <div class="row">
@@ -46,6 +46,7 @@
                                     <h3 class="post-content">
                                         {{this.body}}
                                     </h3>
+                                    <img class="profilePic" src="{{this.postImg}}" width="40px" height="40px">
                                 </a>
                                 <p class="post-meta">Posted by
                                     <a class="postAuthor" href="/profile/{{id}}">{{this.postedBy.username}}</a>

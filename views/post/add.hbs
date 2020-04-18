@@ -23,10 +23,12 @@
     </nav>
 </header>
 
-<form action="/addpost" method="POST">
-<input type="text" name="title" id="">
-<input type="text" name="body" id="">
-<input type="file" id="file" name="Post-image">
-<span>{{user.username}}</span>
-<button type="submit" href="/newsfeed">Send</button>
-</form>
+<div class="text-white">
+    <form action="/addpost" method="POST">
+        <input type="text" name="title" id="">
+        <input type="text" name="body" id="">
+        <input type="file" id="file" name="Post-image">
+        <span>{{user.username}}</span>
+        <button type="submit" href="/newsfeed">Send</button>
+    </form>
+</div>
