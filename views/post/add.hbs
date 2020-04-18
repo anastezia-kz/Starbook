@@ -24,11 +24,12 @@
 </header>
 
 <div class="text-white">
-    <form action="/addpost" method="POST">
+    <form action="/addpost" enctype="multipart/form-data" method="POST">
         <input type="text" name="title" id="">
         <input type="text" name="body" id="">
         <input type="file" id="file" name="Post-image">
         <span>{{user.username}}</span>
-        <button type="submit" href="/newsfeed">Send</button>
+        <button class="btn btn-lg btn-block text-center" type="submit">
+            <a class="text-info">post </a></button>
     </form>
 </div>
