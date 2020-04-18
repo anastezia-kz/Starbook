@@ -33,7 +33,7 @@ router.post('/add', uploader.single('image'), (req,res,next) => {
   })
   .then(photo => {
     console.log('photo created:', photo)
-    User.findOneAndUpdate({_id:req.session.currentUser._id},
+    User.findOneAndUpdate({_id:req.user._id},
       {profileImg:photo})
       .then(user => res.redirect(`/profile/${user.id}`))
     })

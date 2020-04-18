@@ -71,51 +71,55 @@ router.post('/editProfile/:id', (req, res, next) => {
 
 // to adjust code below for Google login
 router.get('/profile', (req, res, next) => {
-  User.findById(req.user._id)
-  .then((user) => {
-    console.log("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%", user)
-    if (req.session.currentUser) {
-      const loggedInUser =
-        req.session.currentUser._id == user._id ? true : null;
-      res.render("profile/profile", {
-        user,
-        planet: user.homeworld,
-        loggedInUser,
-      });
-    } else {
-      res.render("profile/profile", {
-        user,
-        planet: user.homeworld,
-      });
-    }
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+
+  if(!req.user) {
+    return res.redirect('/login')
+  }
+
+  res.redirect(`/profile/${req.user._id}`)
+  // User.findById(req.user._id)
+  // .then((user) => {
+  //   console.log("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%", user)
+      
+  //     res.render("profile/profile", {
+  //       user,
+  //       planet: user.homeworld,
+  //       loggedInUser: true,
+  //     });
+    
+  // })
+  // .catch((err) => {
+  //   console.log(err);
+  // });
 })
 
 
 router.get("/profile/:id", (req, res, next) => {
+
+  if(!req.user) {
+    return res.redirect('/login')
+  }
+
   User.findById(req.params.id).populate('profileImg')
     .then((user) => {
       console.log("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%", {
         user,
-        sessionUser: req.session.currentUser,
+        sessionUser: req.user,
       })
-      if (req.session.currentUser) {
-        const loggedInUser =
-          req.session.currentUser._id == user._id ? true : null;
-        res.render("profile/profile", {
+
+      let loggedInUser
+      
+        loggedInUser = req.user._id.toString() == user._id.toString() ? true : null;
+        console.log("!!!!!!!!!!!!!!!!!!!", typeof req.user._id)
+        console.log("??????????????????",typeof user._id)
+        console.log('==', req.user._id == user._id)
+        console.log("LOGGEDINUSER",loggedInUser)
+        return res.render("profile/profile", {
           user,
           planet: user.homeworld,
-          loggedInUser,
+          loggedInUser
         });
-      } else {
-        res.render("profile/profile", {
-          user,
-          planet: user.homeworld,
-        });
-      }
+  
     })
     .catch((err) => {
       console.log(err);
