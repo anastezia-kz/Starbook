@@ -22,8 +22,16 @@
 
 <div class="containerProfile text-white">
     <p class="username">welcome to the galaxy, {{user.username}}!</p>
+<<<<<<< HEAD
     <img class="profilePic" onerror="if (src != " {{user.profileImg.image}}") src='/images/defaultImg.jpg' ;"
         src="{{user.profileImg.image}}" width="240px" height="240px" />
+=======
+    {{#if user.profileImg}}
+    <img class="profilePic" src="{{user.profileImg.image}}" width="240px" height="240px" />
+    {{else}}
+    <img class="profilePic" src="/images/defaultImg.jpg" width="240px" height="240px" />
+    {{/if}}
+>>>>>>> 3872a47f2ec35924720ef0fbd273ed5077bf6886
     <p>homeworld: {{planet}}</p>
     <p>age: {{user.age}}</p>
     <p class="aboutMe">about me: {{user.bio}}</p>
