@@ -39,6 +39,20 @@ app.use(
   })
 );
 
+//handlebar helper
+
+hbs.registerHelper('isSameId', function (value1, value2) {
+  console.log({value1, value2});
+  return value1.toString() === value2.toString();
+
+});
+
+hbs.registerHelper('toLowerCase', function (value) {
+  return value.toLowerCase()
+})
+
+
+
 // Middleware Setup
 app.use(logger('dev'));
 app.use(bodyParser.json());

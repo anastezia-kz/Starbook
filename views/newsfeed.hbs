@@ -10,7 +10,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="/profile/{{_id}}">your profile</a>
+                    <a class="nav-link text-white" href="/profile/{{userId}}">your profile</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-white" href="/logout">Logout</a>
@@ -27,13 +27,6 @@
         <br>
         <div>
             {{#each posts}}
-            {{!-- <li>
-                {{this.title}}
-                {{this.body}}
-                <img class="profilePic" src="{{this.postImg}}" width="240px" height="240px" />
-
-                {{this.postedBy.username}}
-            </li> --}}
             <div>
                 <div>
                     <div class="row">
@@ -49,6 +42,42 @@
                                 <p class="post-meta">Posted by
                                     <a class="postAuthor" href="/profile/{{id}}">{{this.postedBy.username}}</a>
                                 </p>
+                                {{#if (isSameId this.postedBy._id ../userId)}}
+                                 
+                               <div>
+                                    <!-- Button trigger modal -->
+                                    <button type="button"
+                                        class="btn btn-lg btn-block text-center btn-primary buttonDeleteColor"
+                                        data-toggle="modal" data-target="#exampleModal{{this._id}}">
+                                        delete 
+                                    </button>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal{{this._id}}" tabindex="-1" role="dialog"
+                                        aria-labelledby="exampleModalLabel{{this._id}}" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel{{this._id}}">DELETE
+                                                    </h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    Are you sure?
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-dismiss="modal">Cancel</button>
+                                                    <a href="/deletepost/{{this._id}}" class="btn btn-danger">Delete</a>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{/if}}
                             </div>
                             <hr>
                         </div>
@@ -76,5 +105,7 @@
 
     <div class="giphy">
         <img src='{{giphy}}' width="300px" height="300px">
-    </div>
+        
+        <h4>{{{toLowerCase newFact.title}}}</h4>
+        <p>{{newFact.body}}</p>
 </div>
