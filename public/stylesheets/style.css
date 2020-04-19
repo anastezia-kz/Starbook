@@ -104,6 +104,12 @@ main {
 .username {
   font-size: 1.5rem; }
 
+.usernameFont {
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: 'Josefin Sans', sans-serif;
+  text-transform: uppercase; }
+
 .username:hover {
   color: #138396;
   -webkit-transform: scale(1.3);
@@ -155,6 +161,10 @@ main {
   color: #138396; }
 
 .usersList {
-  color: #138396; }
+  color: #3b9eb0;
+  font-family: 'Josefin Sans', sans-serif;
+  text-transform: uppercase;
+  font-weight: bolder;
+  font-size: 1.1875rem; }
 
 /*# sourceMappingURL=style.css.map */

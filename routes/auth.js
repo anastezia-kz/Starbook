@@ -25,10 +25,10 @@ router.post("/signup", (req, res, next) => {
     });
     return;
   }
-  //lines 47/56 can be removed in a second phase
+
   User.findOne({
-    username: username,
-  })
+      username: username,
+    })
     .then((user) => {
       if (user !== null) {
         res.render("auth/signup", {
@@ -41,9 +41,9 @@ router.post("/signup", (req, res, next) => {
       const hashPass = bcrypt.hashSync(password, salt);
 
       User.create({
-        username,
-        password: hashPass,
-      })
+          username,
+          password: hashPass,
+        })
         .then((user) => {
           req.session.currentUser = user;
           res.redirect(`/profile/${user.id}`);
@@ -57,12 +57,60 @@ router.post("/signup", (req, res, next) => {
     });
 });
 
+// login
+
 router.get("/login", (req, res, next) => {
-  console.log(req.session);
+  // console.log(req.session);
   res.render("auth/login", {
     message: req.flash("error"),
   });
 });
+
+// router.post("/login", (req, res, next) => {
+//   const theUsername = req.body.username;
+//   const thePassword = req.body.password;
+
+//   if (theUsername === "" || thePassword === "") {
+//     res.render("auth/login", {
+//       errorMessage: "Please enter both, username and password to sign up.",
+//     });
+//     return;
+//   }
+
+//   User.findOne({
+//     username: theUsername,
+//   })
+//     .then((user) => {
+//       if (!user) {
+//         res.render("auth/login", {
+//           errorMessage: "who are you? the username doesn't exist.",
+//         });
+//         return;
+//       }
+//       if (bcrypt.compareSync(thePassword, user.password)) {
+//         req.session.currentUser = user;
+//         res.redirect('newsfeed');
+//       } else {
+//         res.render("auth/login", {
+//           errorMessage: "incorrect password",
+//         });
+//       }
+//     })
+//     .catch((error) => {
+//       next(error);
+//     });
+// });
+
+// router.post("/login", (req, res, next) => {
+//   const theUsername = req.body.username;
+//   const thePassword = req.body.password;
+
+//   if (theUsername === "" || thePassword === "") {
+//     res.render("auth/login", {
+//       errorMessage: "Please enter both, username and password to sign up.",
+//     });
+//     return;
+//   }
 
 router.post("/login", (req, res, next) => {
   const theUsername = req.body.username;
@@ -74,7 +122,6 @@ router.post("/login", (req, res, next) => {
     });
     return;
   }
-
   User.findOne({
     username: theUsername,
   })
@@ -108,7 +155,7 @@ router.get("/logout", (req, res, next) => {
 });
 
 
-// Google signin teo Tuesday
+// Google signin
 
 router.get(
   "/google",

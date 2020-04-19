@@ -24,19 +24,14 @@ router.get("/editProfile/:id", async (req, res, next) => {
         }else{
             return fields
         }
-      }
-        )
-
+      })
         const finalShip =  spaceships.map(({fields})=> {
           if(fields.name === user.spaceship ){
             return { ...fields, isSelected: true}
           }else{
               return fields
           }
-        }
-          )
-    
-
+        })
     res.render("profile/edit-profile", {
       user,
       planets: finalPlanet,
@@ -62,7 +57,6 @@ router.post('/editProfile/:id', (req, res, next) => {
       { //req.session.currentUser = user
         console.log({user})
         res.redirect(`/profile/${user._id}`)},
-      
       )
       .catch(e => {
           next(e)
@@ -77,20 +71,20 @@ router.get('/profile', (req, res, next) => {
   }
 
   res.redirect(`/profile/${req.user._id}`)
-  // User.findById(req.user._id)
-  // .then((user) => {
-  //   console.log("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%", user)
+  User.findById(req.user._id)
+  .then((user) => {
+    console.log("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%", user)
       
-  //     res.render("profile/profile", {
-  //       user,
-  //       planet: user.homeworld,
-  //       loggedInUser: true,
-  //     });
+      res.render("profile/profile", {
+        user,
+        // planet: user.homeworld,
+        loggedInUser: true,
+      });
     
-  // })
-  // .catch((err) => {
-  //   console.log(err);
-  // });
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 })
 
 

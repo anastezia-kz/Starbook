@@ -9,6 +9,8 @@ router.get('/',  async (req, res, next) => {
   let user
     if (req.session.currentUser) {
       user = await User.findById(req.session.currentUser._id)
+      // user = await User.findById(req.user._id)
+
     }  
       res.render('index', {user});
 });
