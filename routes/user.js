@@ -59,7 +59,7 @@ router.post('/editProfile/:id', (req, res, next) => {
   User.findOneAndUpdate(
     {_id: req.params.id},  { age, bio, homeworld, spaceship, species}, {new:true})
       .then((user) =>
-      { //req.session.currentUser = user
+      { req.user= user
         console.log({user})
         res.redirect(`/profile/${user._id}`)},
       
@@ -71,7 +71,6 @@ router.post('/editProfile/:id', (req, res, next) => {
 
 // to adjust code below for Google login
 router.get('/profile', (req, res, next) => {
-
   if(!req.user) {
     return res.redirect('/login')
   }
@@ -95,7 +94,7 @@ router.get('/profile', (req, res, next) => {
 
 
 router.get("/profile/:id", (req, res, next) => {
-
+  console.log(req)
   if(!req.user) {
     return res.redirect('/login')
   }
@@ -110,9 +109,9 @@ router.get("/profile/:id", (req, res, next) => {
       let loggedInUser
       
         loggedInUser = req.user._id.toString() == user._id.toString() ? true : null;
-        console.log("!!!!!!!!!!!!!!!!!!!", typeof req.user._id)
-        console.log("??????????????????",typeof user._id)
-        console.log('==', req.user._id == user._id)
+        // console.log("!!!!!!!!!!!!!!!!!!!", typeof req.user._id)
+        // console.log("??????????????????",typeof user._id)
+        // console.log('==', req.user._id == user._id)
         console.log("LOGGEDINUSER",loggedInUser)
         return res.render("profile/profile", {
           user,

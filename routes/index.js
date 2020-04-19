@@ -7,8 +7,8 @@ const Post = require("../models/post");
 /* GET home page */
 router.get('/',  async (req, res, next) => {
   let user
-    if (req.session.currentUser) {
-      user = await User.findById(req.session.currentUser._id)
+    if (req.user) {
+      user = await User.findById(req.user._id)
     }  
       res.render('index', {user});
 });
