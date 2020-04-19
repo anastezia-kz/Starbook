@@ -43,4 +43,13 @@ router.get("/editpost/:id", (req, res, next) => {
     })
 })
 
+router.get("/deletepost/:id", (req, res, next) => {
+
+  Post.deleteOne({_id:req.params.id})
+  .then(() => {
+      res.redirect("/newsfeed");
+    })
+    .catch(err => console.log(err));
+});
+
 module.exports = router;

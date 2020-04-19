@@ -69,28 +69,6 @@ router.post('/editProfile/:id', (req, res, next) => {
       })
 })
 
-// to adjust code below for Google login
-router.get('/profile', (req, res, next) => {
-  if(!req.user) {
-    return res.redirect('/login')
-  }
-
-  res.redirect(`/profile/${req.user._id}`)
-  // User.findById(req.user._id)
-  // .then((user) => {
-  //   console.log("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%", user)
-      
-  //     res.render("profile/profile", {
-  //       user,
-  //       planet: user.homeworld,
-  //       loggedInUser: true,
-  //     });
-    
-  // })
-  // .catch((err) => {
-  //   console.log(err);
-  // });
-})
 
 
 router.get("/profile/:id", (req, res, next) => {
@@ -106,12 +84,8 @@ router.get("/profile/:id", (req, res, next) => {
         sessionUser: req.user,
       })
 
-      let loggedInUser
+      let loggedInUser = req.user._id.toString() == user._id.toString() ? true : null;
       
-        loggedInUser = req.user._id.toString() == user._id.toString() ? true : null;
-        // console.log("!!!!!!!!!!!!!!!!!!!", typeof req.user._id)
-        // console.log("??????????????????",typeof user._id)
-        // console.log('==', req.user._id == user._id)
         console.log("LOGGEDINUSER",loggedInUser)
         return res.render("profile/profile", {
           user,
