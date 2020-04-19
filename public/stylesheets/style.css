@@ -1,3 +1,12 @@
+@media (max-width: 900px) {
+  .functionalities {
+    display: flex;
+    flex-direction: column !important;
+    justify-content: space-around;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 2rem; } }
+
 @media (max-width: 1200px) {
   nav {
     background-color: #121924 !important; } }
@@ -56,6 +65,9 @@ body {
 .jumbotron {
   background-color: transparent !important; }
 
+.navNewsfeed {
+  background-color: #1E2A36; }
+
 nav {
   background-color: transparent; }
 
@@ -74,7 +86,8 @@ nav {
 .fallingAnimation {
   position: fixed;
   left: 40.5%;
-  z-index: -1; }
+  z-index: -1;
+  overflow: hidden; }
 
 footer {
   height: 2rem;
@@ -97,57 +110,77 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 3rem; }
-  .containerProfile img {
-    object-fit: cover; }
+  margin-top: 3rem;
+  background-color: transparent; }
+
+.backTransp {
+  background-color: transparent; }
 
 .username {
-  font-size: 1.5rem; }
+  font-size: 2rem; }
 
 .usernameFont {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: bold;
   font-family: 'Josefin Sans', sans-serif;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  font-style: italic; }
 
-.username:hover {
+.profileElements:hover {
   color: #138396;
   -webkit-transform: scale(1.3);
   -ms-transform: scale(1.3);
   transform: scale(1.3); }
 
+.imgAndList {
+  display: flex; }
+
 .profilePic {
   border-radius: 50%; }
-
-.aboutMe:hover {
-  -webkit-animation: swing 1s ease;
-  animation: swing 1s ease;
-  -webkit-animation-iteration-count: 1;
-  animation-iteration-count: 1; }
 
 .functionalities {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-evenly; }
+  justify-content: space-around;
+  margin-top: 4rem; }
 
 .funcionalitiesElem {
   font-size: 1.3rem; }
 
-.funcionalitiesElem:hover {
-  color: #138396 !important; }
-
 .titleEditProf {
   margin-top: 3rem; }
+
+.titleEdit {
+  color: #138396; }
 
 .editProf {
   margin-top: 1.5rem; }
 
-.buttonDeleteColor {
-  background-color: #138396; }
+.buttonsProfile {
+  background-color: #138396;
+  width: 18rem; }
 
 .photoUpload {
   margin-top: 3rem; }
+
+.gifHello {
+  border-radius: 5%; }
+
+#message {
+  width: 30rem;
+  height: 12rem; }
+
+.postContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+  background-color: transparent; }
+
+.postButton {
+  background-color: #138396; }
 
 .newsfeed {
   margin-top: 2rem; }

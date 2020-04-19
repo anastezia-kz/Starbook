@@ -2,7 +2,16 @@
 @media (max-width: 576px) {}
 
 // Medium devices (tablets, 768px and up)
-@media (max-width: 850px) {}
+@media (max-width: 900px) {
+  .functionalities {
+    display: flex;
+    flex-direction: column !important;
+    justify-content: space-around;
+    align-items: center ;
+    justify-content: space-around ;
+    margin-top: 2rem ;
+  } 
+}
 
 @media (max-width: 1200px) {
   nav {
@@ -86,7 +95,9 @@ body {
 .jumbotron {
   background-color: transparent !important;
 }
-
+.navNewsfeed {
+  background-color: #1E2A36;
+}
 
 nav {
   background-color: transparent;
@@ -112,6 +123,7 @@ nav {
   position: fixed;
   left: 40.5%;
   z-index: -1;
+  overflow: hidden;
 }
 
 // Footer
@@ -142,50 +154,43 @@ main {
 //profile
 
 .containerProfile {
-  img{
-    object-fit: cover;
-  }
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   margin-top: 3rem;
+  background-color: transparent;
+}
+
+.backTransp {
+  background-color: transparent;;
 }
 
 .username {
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
 .usernameFont {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: bold;
   font-family: 'Josefin Sans', sans-serif;
   text-transform: uppercase;
+  font-style: italic;
 }
 
-.username:hover {
+.profileElements:hover {
   color: #138396;
   -webkit-transform: scale(1.3);
   -ms-transform: scale(1.3);
   transform: scale(1.3);
 }
 
-// .username:hover
-// {
-//         -webkit-transform: rotateZ(-30deg);
-//         -ms-transform: rotateZ(-30deg);
-//         transform: rotateZ(-30deg);
-// }
+.imgAndList {
+  display: flex;
+}
 
 .profilePic {
   border-radius: 50%;
-}
-
-.aboutMe:hover {
-  -webkit-animation: swing 1s ease;
-  animation: swing 1s ease;
-  -webkit-animation-iteration-count: 1;
-  animation-iteration-count: 1;
 }
 
 // functionalities
@@ -194,15 +199,12 @@ main {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-around;
+  margin-top: 4rem;
 }
 
 .funcionalitiesElem {
   font-size: 1.3rem;
-}
-
-.funcionalitiesElem:hover {
-  color: #138396 !important;
 }
 
 // edit profile
@@ -211,18 +213,47 @@ main {
   margin-top: 3rem;
 }
 
+.titleEdit {
+  color: #138396;
+}
+
 .editProf {
   margin-top: 1.5rem;
 }
 
-.buttonDeleteColor {
+.buttonsProfile {
   background-color: #138396;
+  width: 18rem;
 }
 
 // photo upload
 
 .photoUpload {
   margin-top: 3rem;
+}
+
+.gifHello {
+  border-radius: 5%;
+}
+
+// add posts
+
+#message {
+  width: 30rem;
+  height: 12rem;
+}
+
+.postContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+  background-color: transparent;
+}
+
+.postButton {
+  background-color: #138396;
 }
 
 // newsfeed

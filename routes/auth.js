@@ -115,12 +115,7 @@ router.get("/logout", (req, res, next) => {
   });
 });
 
-<<<<<<< HEAD
-
-// Google signin
-=======
 // Google signin teo Tuesday
->>>>>>> master
 
 router.get(
   "/google",

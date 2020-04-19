@@ -1,7 +1,7 @@
 <header>
     <nav class="navbar navbar-expand-lg fixed-top navbar-light mb-5">
         <a class="navbar-brand text-white font-weight-bold" href="/newsfeed">Starbook <span
-                class="navbar-text text-info font-italic text-left"> A space trip!
+                class="navbar-text text-info font-italic text-left"> Aren’t you a little short for a stormtrooper?
             </span></a>
         <button class="navbar-toggler bg-light" type="button" data-toggle="collapse" data-target="#navbarResponsive"
             aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,56 +20,74 @@
     </nav>
 </header>
 
-<div class="containerProfile text-white">
-    <p class="username">welcome to the galaxy, <span class="usernameFont">{{user.username}}</span>!</p>
-    {{#if user.profileImg}}
-    <img class="profilePic" src="{{user.profileImg.image}}" width="240px" height="240px" />
-    {{else}}
-    <img class="profilePic" src="/images/defaultImg.jpg" width="240px" height="240px" />
-    {{/if}}
-    <p>homeworld: {{planet}}</p>
-    <p>age: {{user.age}}</p>
-    <p class="aboutMe">about me: {{user.bio}}</p>
-    <p>my spaceship: {{user.spaceship}}</p>
-    <p>i am: {{user.species}}</p>
+<div class="card backTransp text-white containerProfile">
+    <p class="profileElements username">welcome to the galaxy, <span class="usernameFont">{{user.username}}</span>!</p>
+    <div class="imgAndList">
+        <div>
+            {{#if user.profileImg}}
+            <img class="profilePic" src="{{user.profileImg.image}}" width="240px" height="240px" />
+            {{else}}
+            <img class="profilePic" src="/images/defaultImg.jpg" width="240px" height="240px" />
+            {{/if}}
+        </div>
+
+        <div>
+            <ul class="list-group list-group-flush backTransp">
+                <li class="list-group-item backTransp">homeworld: {{planet}}</li>
+                <li class="list-group-item backTransp">age: {{user.age}}</li>
+                <li class="list-group-item backTransp">about me: {{user.bio}}</li>
+                <li class="list-group-item backTransp">my spaceship: {{user.spaceship}}</li>
+                <li class="list-group-item backTransp">i am: {{user.species}}</li>
+            </ul>
+        </div>
+    </div>
+
 </div>
 
-{{#if loggedInUser}}
-<div class="functionalities">
-    <div>
-        <a class="text-white funcionalitiesElem" href="/addpost">write a post</a>
-    </div>
-    <div>
-        <a class="text-white funcionalitiesElem" href="/editProfile/{{user._id}}">edit your profile</a>
-    </div>
-    <div>
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-lg btn-block text-center btn-primary buttonDeleteColor" data-toggle="modal"
-            data-target="#exampleModal{{user._id}}">
-            delete my profile
-        </button>
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal{{user._id}}" tabindex="-1" role="dialog"
-            aria-labelledby="exampleModalLabel{{user._id}}" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel{{user._id}}">DELETE</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        Do you really wanna leave this galaxy?
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                        <a href="/deleteprofile/{{user._id}}" class="btn btn-danger">Delete</a>
+<div class="card-body">
+    {{#if loggedInUser}}
+    <div class="functionalities">
+        <div>
+            <button class="btn btn-lg btn-block text-center btn-primary buttonsProfile">
+                <a class="text-white funcionalitiesElem" href="/addpost">write a post</a>
+            </button>
+        </div>
+        <br>
+        <div>
+            <button class="btn btn-lg btn-block text-center btn-primary buttonsProfile">
+                <a class="text-white funcionalitiesElem" href="/editProfile/{{user._id}}">edit your profile</a>
+            </button>
+        </div>
+        <br>
+        <div>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-lg btn-block text-center btn-primary buttonsProfile"
+                data-toggle="modal" data-target="#exampleModal{{user._id}}">
+                delete my profile
+            </button>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal{{user._id}}" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalLabel{{user._id}}" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel{{user._id}}">DELETE</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            Do you really wanna leave this galaxy?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <a href="/deleteprofile/{{user._id}}" class="btn btn-danger">Delete</a>
 
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-{{/if}}
+    {{/if}}
+</div>>
