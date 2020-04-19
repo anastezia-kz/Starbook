@@ -5,8 +5,8 @@ const Post = require("../models/post");
 const axios = require('axios')
 
 router.get('/', async (req, res, next) => {
-  // console.log(req.user._id)
-  // console.log(req.session)
+  console.log('id:', req.user._id)
+  //console.log(req.session)
   const users = await User.find();
   const posts = await Post.find().populate('postedBy')
     // console.log(posts)
