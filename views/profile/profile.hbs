@@ -33,15 +33,14 @@
 
         <div>
             <ul class="list-group list-group-flush backTransp">
-                <li class="list-group-item backTransp">homeworld: {{planet}}</li>
-                <li class="list-group-item backTransp">age: {{user.age}}</li>
-                <li class="list-group-item backTransp">about me: {{user.bio}}</li>
-                <li class="list-group-item backTransp">my spaceship: {{user.spaceship}}</li>
-                <li class="list-group-item backTransp">i am: {{user.species}}</li>
+                <li class="list-group-item profileDetails backTransp">homeworld: {{planet}}</li>
+                <li class="list-group-item profileDetails backTransp">age: {{user.age}}</li>
+                <li class="list-group-item profileDetails backTransp">about me: {{user.bio}}</li>
+                <li class="list-group-item profileDetails backTransp">my spaceship: {{user.spaceship}}</li>
+                <li class="list-group-item profileDetails backTransp">i am: {{user.species}}</li>
             </ul>
         </div>
     </div>
-
 </div>
 
 <div class="card-body">
@@ -82,7 +81,6 @@
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                             <a href="/deleteprofile/{{user._id}}" class="btn btn-danger">Delete</a>
-
                         </div>
                     </div>
                 </div>
@@ -90,4 +88,4 @@
         </div>
     </div>
     {{/if}}
-</div>>
+</div>

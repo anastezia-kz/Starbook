@@ -22,107 +22,131 @@
 
 <div class="text">
 
-<div class="card mb-3 backTransp text-white marginGifBox">
-    <div class="row no-gutters">
-        <div class="col-md-4 marginGifBox">
-            <img class="gifNews" src='{{giphy}}' alt="random GIF">
+    {{!-- <div class="card mb-3 backTransp text-white marginGifBox">
+        <div class="row no-gutters">
+            <div class="col-md-4 marginGifBox">
+                <img class="gifNews photoPost order-1" src='{{giphy}}' alt="random GIF">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title align-self-center order-2">{{{toLowerCase newFact.title}}}</h5>
+                    <p class="card-text align-self-center order-3">{{newFact.body}}</p>
+                </div>
+            </div>
         </div>
-        <div class="col-md-8">
-            <div class="card-body">
-                <h5 class="card-title">{{{toLowerCase newFact.title}}}</h5>
-                <p class="card-text">{{newFact.body}}</p>
+    </div> --}}
+
+    <div class="post d-flex text-white marginGifBox">
+        <div>
+            <img class="gifNews order-1" src='{{giphy}}' alt="random GIF">
+        </div>
+        <div class="flex-column">
+            <div>
+                <h5 class="card-title align-self-center order-2">{{{toLowerCase newFact.title}}}</h5>
+            </div>
+
+            <div>
+                <p class="card-text align-self-center order-3">{{newFact.body}}</p>
             </div>
         </div>
     </div>
-</div>
 
-<hr class="line">
-<h3 class="text-white text-center">meet other travellers</h3>
-<section class="horizontal-scroll">
-    {{#each users}}
-    <div class="item">
-        <span class="spanSymbol">&</span><a class="usersList item" href="/profile/{{id}}"> {{this.username}}</a>
-    </div>
-    {{/each}}
-</section>
-<div></div>
 
-<hr class="line">
 
-<div class="newsfeed row text-white">
-    <div class="col-12">
-        <h2 class="text-center">galactic thoughts</h2>
-        <br>
-        <div>
-            {{#each posts}}
+
+
+
+
+
+    <hr class="line">
+    <h3 class="text-white text-center">meet other travellers</h3>
+    <section class="horizontal-scroll">
+        {{#each users}}
+        <div class="item">
+            <span class="spanSymbol">&</span><a class="usersList item" href="/profile/{{id}}"> {{this.username}}</a>
+        </div>
+        {{/each}}
+    </section>
+    <div></div>
+
+    <hr class="line">
+
+    <div class="newsfeed row text-white">
+        <div class="col-12">
+            <h2 class="text-center">galactic thoughts</h2>
+            <br>
             <div>
+                {{#each posts}}
                 <div>
                     <div>
-                        <div class="post d-flex">
-                            <div>
-                                {{#if postImg}}
-                                <img class="photoPost order-1 p-2" src="{{this.postImg}}">
-                                {{/if}}
-                            </div>
-                            <div class="flex-column">
-                                <div>
-                                    <h4 class="post-title align-self-center order-2 p-2">
-                                        {{this.title}}
-                                    </h4>
-                                </div>
-
-                                <div>
-                                    <h5 class="post-content align-self-center order-3 p-2">
-                                        {{this.body}}
-                                    </h5>
-                                </div>
-                            </div>
-                        </div>
                         <div>
-                            <p class="post-meta p-2">Posted by
-                                <a class="postAuthor">{{this.postedBy.username}}</a>
-                            </p>
-                        </div>
-                        {{#if (isSameId this.postedBy._id ../userId)}}
-                        <div class="postBox">
-                            <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-lg btn-block text-center btn-primary deletePostButton p-2"
-                                data-toggle="modal" data-target="#exampleModal{{this._id}}">
-                                delete post
-                            </button>
-                            <!-- Modal -->
-                            <div class="modal fade" id="exampleModal{{this._id}}" tabindex="-1" role="dialog"
-                                aria-labelledby="exampleModalLabel{{this._id}}" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel{{this._id}}">delete
-                                            </h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body text-dark">
-                                            are you sure?
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-dismiss="modal">Cancel</button>
-                                            <a href="/deletepost/{{this._id}}" class="btn btn-danger">Delete</a>
+                            <div class="post d-flex">
+                                <div>
+                                    {{#if postImg}}
+                                    <img class="photoPost order-1 p-2" src="{{this.postImg}}">
+                                    {{/if}}
+                                </div>
+                                <div class="flex-column">
+                                    <div>
+                                        <h4 class="post-title align-self-center order-2 p-2">
+                                            {{this.title}}
+                                        </h4>
+                                    </div>
+
+                                    <div>
+                                        <h5 class="post-content align-self-center order-3 p-2">
+                                            {{this.body}}
+                                        </h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="post-meta p-2">Posted by
+                                    <a class="postAuthor">{{this.postedBy.username}}</a>
+                                </p>
+                            </div>
+                            {{#if (isSameId this.postedBy._id ../userId)}}
+                            <div class="postBox">
+                                <!-- Button trigger modal -->
+                                <button type="button"
+                                    class="btn btn-lg btn-block text-center btn-primary deletePostButton p-2"
+                                    data-toggle="modal" data-target="#exampleModal{{this._id}}">
+                                    delete post
+                                </button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal{{this._id}}" tabindex="-1" role="dialog"
+                                    aria-labelledby="exampleModalLabel{{this._id}}" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel{{this._id}}">delete
+                                                </h5>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body text-dark">
+                                                are you sure?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-dismiss="modal">Cancel</button>
+                                                <a href="/deletepost/{{this._id}}" class="btn btn-danger">Delete</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            {{/if}}
                         </div>
-                        {{/if}}
+                        <hr>
                     </div>
-                    <hr>
                 </div>
+                <hr class="line">
+                {{/each}}
             </div>
-            <hr class="line">
-            {{/each}}
         </div>
     </div>
-</div>
 
 </div>
