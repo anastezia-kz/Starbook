@@ -54,6 +54,15 @@ main {
   font-size: 1rem;
 }
 
+.text {
+  position: absolute;
+  top: 60px;
+  bottom: 50px;
+  left: 50px;
+  right: 50px;
+  overflow: auto;
+}
+
 // Error and 404 layout
 
 .container {
