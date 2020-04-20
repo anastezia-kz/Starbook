@@ -22,10 +22,10 @@ router.post("/signup", (req, res, next) => {
     });
     return;
   }
-  //lines 47/56 can be removed in a second phase
+
   User.findOne({
-    username: username,
-  })
+      username: username,
+    })
     .then((user) => {
       if (user !== null) {
         res.render("auth/signup", {
@@ -39,9 +39,9 @@ router.post("/signup", (req, res, next) => {
       const hashPass = bcrypt.hashSync(password, salt);
 
       User.create({
-        username,
-        password: hashPass,
-      })
+          username,
+          password: hashPass,
+        })
         .then((user) => {
           req.user = user;
           res.redirect(`/profile/${user.id}`);
@@ -54,6 +54,8 @@ router.post("/signup", (req, res, next) => {
       next(error);
     });
 });
+
+// login
 
 router.get("/login", (req, res, next) => {
   //console.log(req.session);

@@ -1,7 +1,7 @@
 <header>
     <nav class="navbar navbar-expand-lg fixed-top navbar-light mb-5">
         <a class="navbar-brand text-white font-weight-bold" href="/newsfeed">Starbook <span
-                class="navbar-text text-info font-italic text-left"> A space trip!
+                class="navbar-text text-info font-italic text-left"> Just for once, let me look on you with my own eyes...
             </span></a>
         <button class="navbar-toggler bg-light" type="button" data-toggle="collapse" data-target="#navbarResponsive"
             aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,9 +24,7 @@
 </header>
 
 <div class="container text-white titleEditProf">
-    <div>
-        <h1>edit your profile!</h1>
-    </div>
+    <h1 class="titleEdit">edit your profile!</h1>
 </div>
 
 <div class="text-white">
@@ -47,7 +45,7 @@
                     {{#each planets}}
                     {{#if isSelected}}
                     <option value="{{this.name}}" selected='selected'>{{this.name}}</option>
-                    {{else}} 
+                    {{else}}
                     <option value="{{this.name}}">{{this.name}}</option>
                     {{/if}}
                     {{/each}}
@@ -57,7 +55,7 @@
         <div class="form-group">
             <label for="bio">Tell something about yourself:</label>
             <input type="text" name="bio" class="form-control" id="bio" value="{{user.bio}}"
-                placeholder="oh, really? boring...">
+                placeholder="this is unbelievable!">
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
@@ -66,7 +64,7 @@
                     {{#each spaceships}}
                     {{#if isSelected}}
                     <option value="{{this.name}}" selected='selected'>{{this.name}}</option>
-                    {{else}} 
+                    {{else}}
                     <option value="{{this.name}}">{{this.name}}</option>
                     {{/if}}
                     {{/each}}
@@ -78,7 +76,7 @@
                     {{#each species}}
                     {{#if isSelected}}
                     <option value="{{this.name}}" selected='selected'>{{this.name}}</option>
-                    {{else}} 
+                    {{else}}
                     <option value="{{this.name}}">{{this.name}}</option>
                     {{/if}}
                     {{/each}}

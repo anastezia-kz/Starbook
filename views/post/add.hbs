@@ -1,7 +1,7 @@
 <header>
     <nav class="navbar navbar-expand-lg fixed-top navbar-light mb-5">
         <a class="navbar-brand text-white font-weight-bold" href="/newsfeed">Starbook <span
-                class="navbar-text text-info font-italic text-left"> A space trip!
+                class="navbar-text text-info font-italic text-left"> Stay on target
             </span></a>
         <button class="navbar-toggler bg-light" type="button" data-toggle="collapse" data-target="#navbarResponsive"
             aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,13 +23,28 @@
     </nav>
 </header>
 
-<div class="text-white">
-    <form action="/addpost" enctype="multipart/form-data" method="POST">
-        <input type="text" name="title" id="">
-        <input type="text" name="body" id="">
-        <input type="file" id="file" name="Post-image">
-        <span>{{user.username}}</span>
-        <button class="btn btn-lg btn-block text-center" type="submit">
-            <a class="text-info">post </a></button>
-    </form>
+<div class="postContainer text-white">
+    <h2 class="titleEdit">what's up today in space?</h2>
+    <div class="card text-white backTransp align-middle">
+        <form action="/addpost" enctype="multipart/form-data" method="POST">
+            <div class="postContainer">
+                <h3>title</h3>
+                <input type="text" name="title" id="">
+            </div>
+            <div class="postContainer">
+                <h3>insert your story</h3>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                {{!-- <input type="text" name="body" id="message"> --}}
+            </div>
+            <div class="postContainer">
+                <h3>post an image about your story</h3>
+                <input type="file" id="file" name="Post-image">
+                <span>{{user.username}}</span>
+                <button class="btn btn-lg btn-block text-center postContainer postButton" type="submit">
+                    <a class="text-white">post </a></button>
+            </div>
+        </form>
+    </div>
+    <div>
+    </div>
 </div>

@@ -1,6 +1,7 @@
 <header>
     <nav class="navbar navbar-expand-lg fixed-top navbar-light border-0 mb-5">
-        <a class="navbar-brand text-white font-weight-bold" href="/">Starbook <span class="navbar-text text-info font-italic text-left"> A space trip!</span></a>
+        <a class="navbar-brand text-white font-weight-bold" href="/">Starbook <span
+                class="navbar-text text-info font-italic text-left"> A space trip!</span></a>
         <button class="navbar-toggler bg-light" type="button" data-toggle="collapse" data-target="#navbarResponsive"
             aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon toggler"></span>
@@ -15,7 +16,7 @@
                     <a class="nav-link text-info" href="/newsfeed">Newsfeed <span class="sr-only">(current)</span></a>
                 </li>
                 <li>
-                <a class="nav-link text-info" href="/logout">Log out</a>
+                    <a class="nav-link text-info" href="/logout">Log out</a>
                 </li>
                 {{else}}
                 <li class="nav-item">
@@ -30,27 +31,34 @@
     </nav>
 </header>
 
-    <div class="container text-white distanceBar">
-        <div class="container quotes">
-            <h1 class="animated flipInY delay-2s text-center">Welcome to the deep space</h1>
-            <h1 class="animated zoomInRight text-white slower delay-3s text-center">&</h1>
-        </div>
-        <div class="jumbotron jumboContainer container">
-            <h1 class="text-white font-weight-bold text-center">Join Starbook today</h1>
-            <p class="lead text-white font-weight-bold text-center">The social network for space travelers
-            </p>
-            <p class="text-white font-weight-bold text-center">Enter a new universe of possibilities</p>
-            <p class="lead text-white font-weight-bold">
-                <a class="btn btn-info btn-lg text-center" href="/signup" role="button">Signup now!</a>
-            </p>
-            <p class="lead text-white font-weight-bold">
-                <a class="btn btn-info btn-lg animated hinge slow delay-3s text-center fallingAnimation" role="button">Leave the
-                    site
-                    now!</a>
-                <h1 class="animated fadeInRightBig text-white slower delay-2s text-center indentLogo">@</h1>
-            </p>
-        </div>
+<div class="container text-white distanceBar">
+    <div class="container quotes">
+        <h1 class="animated flipInY delay-2s text-center">Welcome to the deep space</h1>
+        <h1 class="animated zoomInRight text-white slower delay-3s text-center">&</h1>
     </div>
-</main>
+    <div class="jumbotron jumboContainer container">
+        <h1 class="text-white font-weight-bold text-center">Join Starbook today</h1>
+        <p class="lead text-white font-weight-bold text-center">The social network for space travelers
+        </p>
+        <p class="text-white font-weight-bold text-center">Enter a new universe of possibilities</p>
+        <p class="lead text-white font-weight-bold">
+            <a class="btn btn-info btn-lg text-center" href="/signup" role="button">Signup now!</a>
+        </p>
+        <p class="lead text-white font-weight-bold">
+            <a class="btn btn-info btn-lg animated hinge slow delay-3s text-center fallingAnimation" role="button">Leave
+                the
+                site
+                now!</a>
+            <h1 class="animated fadeInRightBig text-white slower delay-2s text-center indentLogo">@</h1>
+        </p>
+    </div>
+</div>
 
-
+{{!-- <div class="text-white">
+    “The Force will be with you. Always.”<span>obi-wan kenobi</span>
+    <p class="text-white font-weight-bold text-center"><a
+            class="btn btn-info btn-lg animated hinge slow delay-3s text-center fallingAnimation" role="button">Leave
+            the
+            site
+            now!</a></p>
+</div> --}}

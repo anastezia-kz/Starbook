@@ -26,13 +26,13 @@ passport.use(
     }).then(user => {
       if (!user) {
         return callback(null, false, {
-          message: "Incorrect username"
+          errorMessage: "who are you? the username doesn't exist."
         });
       }
       bcrypt.compare(password, user.password, (err, same) => {
         if (!same) {
           callback(null, false, {
-            message: "password incorrect"
+            errorMessage: "incorrect password"
           });
         } else {
           callback(null, user);
@@ -42,7 +42,7 @@ passport.use(
   })
 );
 
-// TEST TEO TUESDAY 14TH
+// Google signin
 
 passport.use(new GoogleStrategy({
   clientID: process.env.GOOGLE_CLIENT_ID,

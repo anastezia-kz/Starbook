@@ -1,7 +1,7 @@
 <header>
     <nav class="navbar navbar-expand-lg fixed-top navbar-light mb-5">
         <a class="navbar-brand text-white font-weight-bold" href="/newsfeed">Starbook <span
-                class="navbar-text text-info font-italic text-left"> A space trip!
+                class="navbar-text text-info font-italic text-left"> I have a bad feeling about this
             </span></a>
         <button class="navbar-toggler bg-light" type="button" data-toggle="collapse" data-target="#navbarResponsive"
             aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,13 +23,18 @@
     </nav>
 </header>
 
-
-
-{{!-- views/photo-add.hbs --}}
-<div class="text-white container photoUpload">
-<h2>upload a new profile picture</h2>
-<form method="post" enctype="multipart/form-data" action="/photo/add">
-    <input type="file" id="file" name="image">
-<button class="btn btn-lg btn-block text-center" type="submit"><a
-                    class="text-info">save (it for your driving license)</a></button></form>
+<div class="containerProfile">
+    <div class="card text-white backTransp align-middle">
+        <div class="card-body text-center">
+            <h2 class="card-title text-center">upload a new profile picture</h2>
+            <form method="post" enctype="multipart/form-data" action="/photo/add">
+                <input type="file" id="file" name="image">
+                <button class="btn btn-lg btn-block text-center buttonPhoto" type="submit"><a
+                        class="text-info form-control"> update your photo!</a></button>
+            </form>
+        </div>
+    </div>
+    <div>
+        <img class="gifHello" src="https://i.giphy.com/media/Nx0rz3jtxtEre/giphy.webp" alt="hello there GIF">
+    </div>
 </div>
