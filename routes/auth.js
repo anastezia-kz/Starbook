@@ -128,7 +128,7 @@ router.get(
 router.get(
   "/google/callback",
   passport.authenticate("google", {
-    successRedirect: "/profile",
+    successRedirect: "/newsfeed",
     failureRedirect: "/login",
   })
 );

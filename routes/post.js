@@ -16,7 +16,7 @@ router.post("/addpost", uploader.single('Post-image'), (req, res, next) => {
       title: req.body.title,
       body: req.body.body,
       postedBy:req.user._id,
-      postImg: req.file.location
+      postImg: req.file && req.file.location
     })
 
     .then((post) => {

@@ -38,7 +38,9 @@
                                 <h3 class="post-content">
                                     {{this.body}}
                                 </h3>
+                                {{#if postImg}}
                                 <img class="profilePic" src="{{this.postImg}}" width="40px" height="40px">
+                                {{/if}}
                                 <p class="post-meta">Posted by
                                     <a class="postAuthor" href="/profile/{{id}}">{{this.postedBy.username}}</a>
                                 </p>
