@@ -65,16 +65,14 @@
                             </div>
 
                             <div>
+                                {{#if postImg}}
                                 <img class="photoPost" src="{{this.postImg}}">
+                                {{/if}}
                             </div>
 
                             <div>
                                 <h5 class="post-content">
                                     {{this.body}}
-                                </h3>
-                                {{#if postImg}}
-                                <img class="profilePic" src="{{this.postImg}}">
-                                {{/if}}
                                 </h5>
                             </div>
 
