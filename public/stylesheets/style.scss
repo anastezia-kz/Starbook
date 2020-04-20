@@ -334,16 +334,15 @@ hr.line {
 // posts
 
 .postBox {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
+  // justify-content: space-around;
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
 
 .photoPost {
-  border-radius: 50%;
   width: 14rem;
   height: 14rem;
 }
@@ -358,9 +357,11 @@ hr.line {
 
 .deletePostButton {
   background-color: #138396;
-  width: 12rem;
+  font-size: 0.9rem;
+  width: 9rem;
 }
 
 .deletePostButton:hover {
   background-color: #1E2A36;
 }
+
