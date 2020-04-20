@@ -234,6 +234,7 @@ main {
 
 .gifHello {
   border-radius: 5%;
+  max-width: 550px;
 }
 
 // add posts
@@ -278,6 +279,41 @@ main {
   text-transform: uppercase;
   font-weight: bolder;
   font-size: 1.1875rem;
+}
+
+.marginGifBox {
+margin-top: 2rem;
+}
+
+.gifNews {
+  width: 400px;
+  max-height: 300px;
+}
+
+hr.line {
+  border-top: 1px solid white;
+}
+
+.horizontal-scroll {
+  background-color: transparent;
+  overflow: hidden;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  padding: 5px 0;
+}
+
+.item {
+  display: inline-block;
+  // width: 150px;
+  background-color: transparent;
+  text-align: center;
+  font-size: 1rem;
+  margin: 0 10px
+}
+
+.spanSymbol {
+  color: white;
 }
 
 // posts

@@ -21,6 +21,33 @@
 </header>
 
 
+<div class="card mb-3 backTransp text-white marginGifBox">
+    <div class="row no-gutters">
+        <div class="col-md-4 marginGifBox">
+            <img class="gifNews" src='{{giphy}}' alt="random GIF">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">{{{toLowerCase newFact.title}}}</h5>
+                <p class="card-text">{{newFact.body}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr class="line">
+<h3 class="text-white text-center">meet other travellers</h3>
+<section class="horizontal-scroll">
+    {{#each users}}
+    <div class="item">
+        <span class="spanSymbol">&</span><a class="usersList item" href="/profile/{{id}}"> {{this.username}}</a>
+    </div>
+    {{/each}}
+</section>
+<div></div>
+
+<hr class="line">
+
 <div class="newsfeed row text-white">
     <div class="col-9">
         <h1>galactic thoughts</h1>
@@ -43,13 +70,13 @@
                                     <a class="postAuthor" href="/profile/{{id}}">{{this.postedBy.username}}</a>
                                 </p>
                                 {{#if (isSameId this.postedBy._id ../userId)}}
-                                 
-                               <div>
+
+                                <div>
                                     <!-- Button trigger modal -->
                                     <button type="button"
                                         class="btn btn-lg btn-block text-center btn-primary buttonDeleteColor"
                                         data-toggle="modal" data-target="#exampleModal{{this._id}}">
-                                        delete 
+                                        delete
                                     </button>
                                     <!-- Modal -->
                                     <div class="modal fade" id="exampleModal{{this._id}}" tabindex="-1" role="dialog"
@@ -90,22 +117,3 @@
 
 
     </div>
-    <div class="col-3">
-        <br>
-        <ul class="ulNewsfeed">
-            <h3>hitchhikers' list</h3>
-            <br>
-            {{#each users}}
-            <li>
-                &<a class="usersList" href="/profile/{{id}}"> {{this.username}}</a>
-            </li>
-            {{/each}}
-        </ul>
-    </div>
-
-    <div class="giphy">
-        <img src='{{giphy}}' width="300px" height="300px">
-        
-        <h4>{{{toLowerCase newFact.title}}}</h4>
-        <p>{{newFact.body}}</p>
-</div>
