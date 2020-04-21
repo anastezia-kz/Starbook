@@ -25,18 +25,21 @@ router.post("/addpost", uploader.single('Post-image'), (req, res, next) => {
     })
 })
 
-router.get("/editpost/:id", (req, res, next) => {
-  Post.update({
-      id: req.params.id,
-      postedBy: req.user._id
-    }, {
-      title: req.body.title,
-      body: req.body.body
-    })
+router.get("/editpost/:id", (req, res, next) =>{
+  Post.findById(req.params.id)
+  .then(post => {
+    res.render("post/edit", {post})
+  })
+})
+
+router.post("/editpost/:id", (req, res, next) => {
+  console.log('here');
+  const {title, body} = req.body
+  Post.findByIdAndUpdate(
+    {id: req.params.id}, {title, body}, {new:true})
     .then(post => {
-      res.render("post/add", {
-        post
-      })
+      req.post = post
+      res.redirect ("/newsfeed")
     })
     .catch((err) => {
       console.log(err)

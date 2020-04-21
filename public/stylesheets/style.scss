@@ -202,6 +202,7 @@ main {
 
 .profilePic {
   border-radius: 5%;
+  object-fit: cover;
 }
 
 .profileDetails:hover {
@@ -359,10 +360,10 @@ hr.line {
 // posts
 
 .postBox {
-  // display: flex;
+  display: flex;
   // flex-direction: column;
   // align-items: center;
-  // justify-content: space-around;
+  justify-content: space-evenly;
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
@@ -370,6 +371,7 @@ hr.line {
 .photoPost {
   width: 14rem;
   height: 14rem;
+  object-fit: contain;
 }
 
 .postAuthor {

@@ -50,9 +50,9 @@ router.get("/editProfile/:id", async (req, res, next) => {
 router.post('/editProfile/:id', (req, res, next) => {
   // console.log('***************************************************');
   
-  const {age, bio, homeworld, spaceship, species} = req.body;
+  const {username, age, bio, homeworld, spaceship, species} = req.body;
   User.findOneAndUpdate(
-    {_id: req.params.id},  { age, bio, homeworld, spaceship, species}, {new:true})
+    {_id: req.params.id},  { username, age, bio, homeworld, spaceship, species}, {new:true})
       .then((user) =>
       { req.user= user
         console.log({user})

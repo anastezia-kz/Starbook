@@ -15,7 +15,7 @@ const passport = require('./auth/passport')
 const LocalStrategy = require('passport-local').Strategy
 
 mongoose
-  .connect(`${process.env.MONGODB_URI}`, {
+  .connect('mongodb://localhost/starbook', {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
