@@ -33,12 +33,16 @@ router.get("/editpost/:id", (req, res, next) =>{
 })
 
 router.post("/editpost/:id", (req, res, next) => {
-  console.log('here');
-  const {title, body} = req.body
-  Post.findByIdAndUpdate(
-    {id: req.params.id}, {title, body}, {new:true})
+  const {title, body} = req.body;
+  console.log('!!!!!!!!!');
+  console.log({
+    id: req.params.id,
+    body,
+  });
+  Post.findOneAndUpdate(
+    {_id: req.params.id}, {title, body}, {new:true})
     .then(post => {
-      req.post = post
+      
       res.redirect ("/newsfeed")
     })
     .catch((err) => {
